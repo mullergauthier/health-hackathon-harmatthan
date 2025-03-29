@@ -2,3 +2,4 @@ streamlit
 semantic-kernel
 azure.identity
 azure.ai.projects
+azure.core

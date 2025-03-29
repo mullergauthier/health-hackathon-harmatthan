@@ -2,6 +2,7 @@
 
 import asyncio
 from azure.identity.aio import DefaultAzureCredential
+from azure.core.credentials import AzureKeyCredential
 from semantic_kernel.agents import AzureAIAgent, AzureAIAgentThread
 
 """
@@ -10,7 +11,7 @@ Azure AI Agent within Semantic Kernel. This sample requires that you
 have an existing agent created either previously in code or via the
 Azure Portal (or CLI).
 """
-
+api_key = "<votre_clé_api>"
 # Simulate a conversation with the agent
 USER_INPUTS = [
 """
@@ -237,10 +238,11 @@ Patient hospitalisé pendant au moins 24h ou pris en charge dans une filière sp
 
 async def main() -> None:
     async with (
-        DefaultAzureCredential() as creds,
+        AzureKeyCredential(key="df4bcebf8eb843e8bc0dca3d3dd88470") as creds,
         AzureAIAgent.create_client(credential=creds) as client,
     ):
         # 1. Retrieve the agent definition based on the `agent_id`
+        
         # Replace the "your-agent-id" with the actual agent ID
         # you want to use.
         agent_definition = await client.agents.get_agent(
