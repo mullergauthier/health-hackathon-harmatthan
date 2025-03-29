@@ -1,9 +1,7 @@
 # Copyright (c) Microsoft. All rights reserved.
 
 import asyncio
-
 from azure.identity.aio import DefaultAzureCredential
-
 from semantic_kernel.agents import AzureAIAgent, AzureAIAgentThread
 
 """
@@ -15,7 +13,7 @@ Azure Portal (or CLI).
 
 # Simulate a conversation with the agent
 USER_INPUTS = [
-text = """
+"""
     Motif d'admission 23/10
     rééducation et réautonomisation chez une patiente de 83 ans dans les suites d'une osteosynthèse sur fracture periprothétique du femur proximal gauche avec mise en place d'un cerclage sur PTH gauche le et prise en charge chirurgicale d'un HSD chronique
 
@@ -248,7 +246,7 @@ async def main() -> None:
         agent_definition = await client.agents.get_agent(
             agent_id="asst_E5nFroutEcRYyKkXsLkMwPvJ",
         )
-
+    
         # 2. Create a Semantic Kernel agent for the Azure AI agent
         agent = AzureAIAgent(
             client=client,
@@ -262,7 +260,6 @@ async def main() -> None:
 
         try:
             for user_input in USER_INPUTS:
-                print(f"# User: '{user_input}'")
                 # 4. Invoke the agent for the specified thread for response
                 response = await agent.get_response(messages=user_input, thread=thread)
                 print(f"# {response.name}: {response}")

@@ -1,53 +1,56 @@
+import asyncio
 import streamlit as st
-import pandas as pd
+from azure.identity.aio import DefaultAzureCredential
+from semantic_kernel.agents import AzureAIAgent, AzureAIAgentThread
 
-# ----- Sidebar -----
+# --- Partie Back-end : fonction asynchrone pour interagir avec l'agent Azure ---
+async def run_agent(user_input: str) -> str:
+    async with DefaultAzureCredential() as creds, AzureAIAgent.create_client(credential=creds) as client:
+        # Remplacez "asst_E5nFroutEcRYyKkXsLkMwPvJ" par l'ID réel de votre agent
+        agent_definition = await client.agents.get_agent(agent_id="asst_E5nFroutEcRYyKkXsLkMwPvJ")
+        agent = AzureAIAgent(client=client, definition=agent_definition)
+        thread: AzureAIAgentThread = None
+        try:
+            # Appel de l'agent avec le texte en entrée
+            response = await agent.get_response(messages=user_input, thread=thread)
+            # On retourne le texte de la réponse (ou conversion en string selon la structure de response)
+            return str(response)
+        finally:
+            if thread:
+                await thread.delete()
+
+def get_agent_response(user_input: str) -> str:
+    """
+    Fonction synchrone qui exécute la fonction asynchrone run_agent.
+    Attention : dans certains environnements Streamlit déjà asynchrones,
+    il peut être nécessaire d'adapter la gestion de l'event loop.
+    """
+    return asyncio.run(run_agent(user_input))
+
+# --- Partie Front-end : Interface Streamlit ---
+# Sidebar (boutons placeholders)
 with st.sidebar:
-    st.button("Logo")  # Placeholder for logo
+    st.button("Logo")
     st.button("Direct")
     st.button("Language")
     st.button("LLM 1")
     st.button("LLM 2")
 
-# ----- Main Panel -----
 st.title("Doctor Input Interface")
 
-# Doctor input section
+# Zone de saisie pour les notes du médecin
 doctor_notes = st.text_area("Doctor input (notes)", height=150)
 
-# Extracted diseases display
-st.subheader("Extracted diseases")
-st.markdown("*(This area will show extracted disease names based on the input above)*")
-extracted_placeholder = st.empty()
+# Bouton pour envoyer la demande à l'agent Azure
+if st.button("Envoyer"):
+    if doctor_notes:
+        st.info("Envoi de la demande à l'agent Azure...")
+        # Appel de l'agent et affichage de la réponse
+        response_text = get_agent_response(doctor_notes)
+        st.subheader("Réponse de l'agent")
+        st.write(response_text)
+    else:
+        st.warning("Veuillez saisir les notes du médecin.")
 
-# Simulated extracted diseases (placeholder)
-extracted_diseases = ["Diabetes", "Hypertension"]
-with extracted_placeholder.container():
-    for disease in extracted_diseases:
-        st.write(f"- {disease}")
 
-# ---- Output Table Section ----
-st.subheader("Output")
-
-# Placeholder for a dynamic editable table (simulated)
-output_data = [
-    {"Extract": "Diabetes", "Code 1": "E10", "Desc 1": "Type 1 Diabetes", "Code 2": "E11", "Desc 2": "Type 2 Diabetes"},
-    {"Extract": "Hypertension", "Code 1": "I10", "Desc 1": "Essential Hypertension", "Code 2": "", "Desc 2": ""},
-]
-
-# Display table with actions
-for i, row in enumerate(output_data):
-    cols = st.columns([2, 1, 2, 1, 2, 0.5, 0.5])
-    cols[0].text_input("Extract", value=row["Extract"], key=f"extract_{i}")
-    cols[1].text_input("Code 1", value=row["Code 1"], key=f"code1_{i}")
-    cols[2].text_input("Desc 1", value=row["Desc 1"], key=f"desc1_{i}")
-    cols[3].text_input("Code 2", value=row["Code 2"], key=f"code2_{i}")
-    cols[4].text_input("Desc 2", value=row["Desc 2"], key=f"desc2_{i}")
-    delete = cols[5].button("❌", key=f"delete_{i}")
-    confirm = cols[6].button("✅", key=f"confirm_{i}")
-
-    if delete:
-        st.warning(f"Row {i+1} marked for deletion.")
-    if confirm:
-        st.success(f"Row {i+1} confirmed.")
 
