@@ -5,3 +5,4 @@ test.py
 .streamlit/
 /.streamlit
 app2.py
+debug.log
