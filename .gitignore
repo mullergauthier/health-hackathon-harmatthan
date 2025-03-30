@@ -2,7 +2,5 @@ venv
 .env
 test.py
 /test
-.streamlit/
-/.streamlit
 app2.py
 debug.log
