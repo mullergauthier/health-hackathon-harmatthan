@@ -1,0 +1,15 @@
+2025-03-30 00:36:51,162 - __main__ - DEBUG - Initialisation du script Streamlit avec intégration de logging.
+2025-03-30 00:36:51,162 - asyncio - DEBUG - Using selector: SelectSelector
+2025-03-30 00:36:51,169 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-30 00:36:51,169 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-03-30 00:36:51,169 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-03-30 00:36:51,169 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-30 00:36:51,169 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-03-30 00:36:51,169 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-03-30 00:36:51,193 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-30 00:36:51,193 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-03-30 00:36:51,193 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-03-30 00:36:51,201 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-30 00:36:51,201 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-03-30 00:36:51,201 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-03-30 00:36:51,242 - __main__ - DEBUG - Affichage de la réponse de l'agent dans Streamlit.
