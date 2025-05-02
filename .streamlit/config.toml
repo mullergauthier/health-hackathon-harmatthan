@@ -21,3 +21,7 @@ backgroundColor = "#FFFFFF"
 textColor = "#003D6A"        # The custom blue from your sidebar
 font = "sans-serif"
 
+[browser]
+
+[server]
+port = 8502

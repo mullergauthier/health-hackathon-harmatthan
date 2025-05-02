@@ -4,3 +4,4 @@ test.py
 /test
 app2.py
 debug.log
+.streamlit/secrets.toml
