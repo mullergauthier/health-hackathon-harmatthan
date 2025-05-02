@@ -1464,3 +1464,1127 @@ Response headers:
     'x-request-time': 'REDACTED'
     'Content-Encoding': 'REDACTED'
 2025-05-03 00:45:27,700 - semantic_kernel.agents.azure_ai.agent_thread_actions - DEBUG - Yielding message_creation for run [run_KGKIujaiJL2t9NRPu351RQAF], agent `harmattan-allinone`, thread `thread_HztlMZ0LjEItecYwFKr6T1Fi`, message count `1`, is_visible `True`
+2025-05-03 00:59:20,069 - asyncio - DEBUG - Using selector: SelectSelector
+2025-05-03 00:59:20,087 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 00:59:20,087 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 00:59:20,094 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 00:59:20,096 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 00:59:20,097 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 00:59:20,099 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 00:59:20,131 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 00:59:20,136 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 00:59:20,136 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 00:59:20,141 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 00:59:20,144 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 00:59:20,144 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:01:13,350 - asyncio - DEBUG - Using selector: SelectSelector
+2025-05-03 01:01:13,377 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:01:13,383 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:01:13,388 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:01:13,395 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:01:13,397 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:01:13,400 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:01:13,420 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:01:13,430 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:01:13,430 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:01:13,438 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:01:13,438 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:01:13,438 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:01:13,481 - asyncio - DEBUG - Using selector: SelectSelector
+2025-05-03 01:01:13,488 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:01:13,496 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:01:13,501 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:01:13,687 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:01:13,689 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:01:13,691 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:01:13,711 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:01:13,711 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:01:13,716 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:01:13,718 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:01:13,720 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:01:13,721 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:01:13,756 - __main__ - INFO - Analyze button clicked, processing notes.
+2025-05-03 01:01:13,756 - __main__ - INFO - Attempting to run agent asst_S96IdpHu5luCGKC7aNRYWPjT...
+2025-05-03 01:01:13,767 - azure.identity.aio._credentials.environment - INFO - No environment configuration found.
+2025-05-03 01:01:13,768 - azure.identity.aio._credentials.managed_identity - INFO - ManagedIdentityCredential will use IMDS
+2025-05-03 01:01:13,778 - __main__ - DEBUG - Azure credentials and AI client created.
+2025-05-03 01:01:13,778 - __main__ - DEBUG - Retrieving agent definition for asst_S96IdpHu5luCGKC7aNRYWPjT...
+2025-05-03 01:01:13,785 - azure.identity.aio._internal.decorators - DEBUG - EnvironmentCredential.get_token_info failed: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
+Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
+Traceback (most recent call last):
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\aio\_internal\decorators.py", line 22, in wrapper
+    token = await fn(*args, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\aio\_credentials\environment.py", line 152, in get_token_info
+    raise CredentialUnavailableError(message=message)
+azure.identity._exceptions.CredentialUnavailableError: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
+Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
+2025-05-03 01:01:13,795 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=REDACTED&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.21.0 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+No body was attached to the request
+2025-05-03 01:01:13,809 - azure.identity.aio._internal.get_token_mixin - DEBUG - ImdsCredential.get_token_info failed: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.
+Traceback (most recent call last):
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohttp\connector.py", line 1116, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\selector_events.py", line 638, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 287, in __await__
+    yield self  # This tells Task to wait for completion.
+    ^^^^^^^^^^
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\tasks.py", line 349, in __wakeup
+    future.result()
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 203, in result
+    raise self._exception.with_traceback(self._exception_tb)
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\selector_events.py", line 678, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+OSError: [Errno 10051] Connect call failed ('169.254.169.254', 80)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\transport\_aiohttp.py", line 306, in send
+    result = await self.session.request(  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohttp\client.py", line 703, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohttp\connector.py", line 548, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohttp\connector.py", line 1056, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohttp\connector.py", line 1414, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohttp\connector.py", line 1383, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohttp\connector.py", line 1135, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 169.254.169.254:80 ssl:default [Connect call failed ('169.254.169.254', 80)]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\aio\_credentials\imds.py", line 46, in _request_token
+    await self._client.request_token(*scopes, connection_timeout=1, retry_total=0)
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\aio\_internal\managed_identity_client.py", line 34, in request_token
+    response = await self._pipeline.run(request, retry_on_methods=[request.method], **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 229, in run
+    return await first_node.send(pipeline_request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 1 more time]
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\policies\_retry_async.py", line 209, in send
+    raise err
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\policies\_retry_async.py", line 183, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 1 more time]
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 111, in send
+    await self._sender.send(request.http_request, **request.context.options),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\transport\_aiohttp.py", line 351, in send
+    raise ServiceRequestError(err, error=err) from err
+azure.core.exceptions.ServiceRequestError: Cannot connect to host 169.254.169.254:80 ssl:default [Connect call failed ('169.254.169.254', 80)]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\aio\_internal\get_token_mixin.py", line 137, in _get_token_base
+    token = await self._request_token(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\aio\_credentials\imds.py", line 56, in _request_token
+    raise CredentialUnavailableError(message=error_message) from ex
+azure.identity._exceptions.CredentialUnavailableError: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.
+2025-05-03 01:01:13,872 - azure.identity.aio._internal.decorators - DEBUG - ManagedIdentityCredential.get_token_info failed: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.
+Traceback (most recent call last):
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohttp\connector.py", line 1116, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\selector_events.py", line 638, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 287, in __await__
+    yield self  # This tells Task to wait for completion.
+    ^^^^^^^^^^
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\tasks.py", line 349, in __wakeup
+    future.result()
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 203, in result
+    raise self._exception.with_traceback(self._exception_tb)
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\selector_events.py", line 678, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+OSError: [Errno 10051] Connect call failed ('169.254.169.254', 80)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\transport\_aiohttp.py", line 306, in send
+    result = await self.session.request(  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohttp\client.py", line 703, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohttp\connector.py", line 548, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohttp\connector.py", line 1056, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohttp\connector.py", line 1414, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohttp\connector.py", line 1383, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohttp\connector.py", line 1135, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 169.254.169.254:80 ssl:default [Connect call failed ('169.254.169.254', 80)]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\aio\_credentials\imds.py", line 46, in _request_token
+    await self._client.request_token(*scopes, connection_timeout=1, retry_total=0)
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\aio\_internal\managed_identity_client.py", line 34, in request_token
+    response = await self._pipeline.run(request, retry_on_methods=[request.method], **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 229, in run
+    return await first_node.send(pipeline_request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 1 more time]
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\policies\_retry_async.py", line 209, in send
+    raise err
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\policies\_retry_async.py", line 183, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 1 more time]
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 111, in send
+    await self._sender.send(request.http_request, **request.context.options),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\pipeline\transport\_aiohttp.py", line 351, in send
+    raise ServiceRequestError(err, error=err) from err
+azure.core.exceptions.ServiceRequestError: Cannot connect to host 169.254.169.254:80 ssl:default [Connect call failed ('169.254.169.254', 80)]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\aio\_internal\decorators.py", line 22, in wrapper
+    token = await fn(*args, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\aio\_credentials\managed_identity.py", line 181, in get_token_info
+    return await cast(AsyncSupportsTokenInfo, self._credential).get_token_info(*scopes, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\aio\_internal\get_token_mixin.py", line 114, in get_token_info
+    return await self._get_token_base(*scopes, options=options, base_method_name="get_token_info")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\aio\_internal\get_token_mixin.py", line 137, in _get_token_base
+    token = await self._request_token(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\aio\_credentials\imds.py", line 56, in _request_token
+    raise CredentialUnavailableError(message=error_message) from ex
+azure.identity._exceptions.CredentialUnavailableError: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.
+2025-05-03 01:01:13,918 - azure.identity.aio._internal.decorators - DEBUG - SharedTokenCacheCredential.get_token_info failed: SharedTokenCacheCredential authentication unavailable. No accounts were found in the cache.
+Traceback (most recent call last):
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohttp\connector.py", line 1116, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\selector_events.py", line 638, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 287, in __await__
+    yield self  # This tells Task to wait for completion.
+    ^^^^^^^^^^
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\tasks.py", line 349, in __wakeup
+    future.result()
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 203, in result
+    raise self._exception.with_traceback(self._exception_tb)
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\selector_events.py", line 678, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+OSError: [Errno 10051] Connect call failed ('169.254.169.254', 80)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\aio\_internal\decorators.py", line 22, in wrapper
+    token = await fn(*args, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\aio\_credentials\shared_cache.py", line 108, in get_token_info
+    return await self._get_token_base(*scopes, options=options, base_method_name="get_token_info")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\aio\_credentials\shared_cache.py", line 138, in _get_token_base
+    account = self._get_account(self._username, self._tenant_id, is_cae=is_cae)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\_internal\decorators.py", line 75, in wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\identity\_internal\shared_token_cache.py", line 209, in _get_account
+    raise CredentialUnavailableError(message=NO_ACCOUNTS)
+azure.identity._exceptions.CredentialUnavailableError: SharedTokenCacheCredential authentication unavailable. No accounts were found in the cache.
+2025-05-03 01:01:13,946 - azure.identity._credentials.azure_cli - DEBUG - Executing subprocess with the following arguments ['C:\\Program Files\\Microsoft SDKs\\Azure\\CLI2\\wbin\\az.CMD', 'account', 'get-access-token', '--output', 'json', '--resource', 'https://ml.azure.com']
+2025-05-03 01:01:16,164 - azure.identity._internal.decorators - DEBUG - AzureCliCredential.get_token_info succeeded
+2025-05-03 01:01:16,166 - azure.identity._internal.decorators - DEBUG - [Authenticated account] Client ID: 04b07795-8ddb-461a-bbee-02f9e1bf7b46. Tenant ID: 6fade94d-0591-483f-b938-2715bb31e2db. User Principal Name: unavailableUpn. Object ID (user): cbd16535-7f58-4b9c-9049-8192b5c5e029
+2025-05-03 01:01:16,173 - azure.identity.aio._internal.decorators - DEBUG - AzureCliCredential.get_token_info succeeded
+2025-05-03 01:01:16,174 - azure.identity.aio._internal.decorators - DEBUG - [Authenticated account] Client ID: 04b07795-8ddb-461a-bbee-02f9e1bf7b46. Tenant ID: 6fade94d-0591-483f-b938-2715bb31e2db. User Principal Name: unavailableUpn. Object ID (user): cbd16535-7f58-4b9c-9049-8192b5c5e029
+2025-05-03 01:01:16,183 - azure.identity.aio._credentials.chained - INFO - DefaultAzureCredential acquired a token from AzureCliCredential
+2025-05-03 01:01:16,185 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/assistants/asst_S96IdpHu5luCGKC7aNRYWPjT?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '5898d483-27a9-11f0-a736-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.26.1 azsdk-python-ai-projects/1.0.0b8 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2025-05-03 01:01:18,625 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 02 May 2025 23:01:18 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-03 01:01:18,634 - __main__ - DEBUG - Agent definition retrieved.
+2025-05-03 01:01:18,636 - __main__ - DEBUG - AzureAIAgent instance created.
+2025-05-03 01:01:18,636 - __main__ - INFO - Sending request to agent...
+2025-05-03 01:01:18,644 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads?api-version=REDACTED'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '16'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '5b7e583c-27a9-11f0-8f83-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.26.1 azsdk-python-ai-projects/1.0.0b8 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+2025-05-03 01:01:19,990 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 02 May 2025 23:01:19 GMT'
+    'Content-Type': 'application/json'
+    'Content-Length': '137'
+    'Connection': 'keep-alive'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+2025-05-03 01:01:19,990 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_TplsWgPB0ejEsZDwxVde6ycT/messages?api-version=REDACTED'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '8765'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '5c4ba4d7-27a9-11f0-a546-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.26.1 azsdk-python-ai-projects/1.0.0b8 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+2025-05-03 01:01:20,572 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 02 May 2025 23:01:20 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-03 01:01:20,578 - semantic_kernel.prompt_template.kernel_prompt_template - DEBUG - Extracting blocks from template: You are an agent tasked with classifying notes from French doctors into ICD-10 codes, using only the official ICD-10 classification provided by the World Health Organization at https://icd.who.int/browse10/2019/en#.
+
+For each input note, extract up to 15 relevant ICD-10 codes. Each code must strictly follow the format: one letter, two digits, a dot, and one digit (e.g., X99.9).
+
+Your output should be a JSON  with each element structured as follows:
+
+  {
+    "extract": "str",       // The input note from the doctor used to codify
+    "code": "str",          // The ICD-10 code in X99.9 format
+    "description": "str",   // A short description of the ICD-10 code
+    "url": "str"            // The exact URL to the ICD-10 code page on the WHO website
+  }
+... : ...
+  // up to 15 items
+
+If no valid ICD-10 code is found, return an empty JSON . Do not include any additional text or formatting outside of the JSON structure.
+
+2025-05-03 01:01:20,587 - semantic_kernel.prompt_template.kernel_prompt_template - DEBUG - Rendering list of 1 blocks
+2025-05-03 01:01:20,587 - semantic_kernel.prompt_template.kernel_prompt_template - DEBUG - Rendered prompt: You are an agent tasked with classifying notes from French doctors into ICD-10 codes, using only the official ICD-10 classification provided by the World Health Organization at https://icd.who.int/browse10/2019/en#.
+
+For each input note, extract up to 15 relevant ICD-10 codes. Each code must strictly follow the format: one letter, two digits, a dot, and one digit (e.g., X99.9).
+
+Your output should be a JSON  with each element structured as follows:
+
+  {
+    "extract": "str",       // The input note from the doctor used to codify
+    "code": "str",          // The ICD-10 code in X99.9 format
+    "description": "str",   // A short description of the ICD-10 code
+    "url": "str"            // The exact URL to the ICD-10 code page on the WHO website
+  }
+... : ...
+  // up to 15 items
+
+If no valid ICD-10 code is found, return an empty JSON . Do not include any additional text or formatting outside of the JSON structure.
+
+2025-05-03 01:01:20,600 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_TplsWgPB0ejEsZDwxVde6ycT/runs?api-version=REDACTED'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '1155'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '5ca6d364-27a9-11f0-ba46-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.26.1 azsdk-python-ai-projects/1.0.0b8 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+2025-05-03 01:01:22,266 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 02 May 2025 23:01:22 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-03 01:01:22,275 - semantic_kernel.agents.azure_ai.agent_thread_actions - INFO - Polling run status: run_iotdyIcuUi2EmPVqryPmY6tj, threadId: thread_TplsWgPB0ejEsZDwxVde6ycT
+2025-05-03 01:01:22,534 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_TplsWgPB0ejEsZDwxVde6ycT/runs/run_iotdyIcuUi2EmPVqryPmY6tj?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '5dcfc9eb-27a9-11f0-834e-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.26.1 azsdk-python-ai-projects/1.0.0b8 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2025-05-03 01:01:22,877 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 02 May 2025 23:01:22 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-03 01:01:23,147 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_TplsWgPB0ejEsZDwxVde6ycT/runs/run_iotdyIcuUi2EmPVqryPmY6tj?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '5e2d6177-27a9-11f0-b155-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.26.1 azsdk-python-ai-projects/1.0.0b8 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2025-05-03 01:01:24,290 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 02 May 2025 23:01:24 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-03 01:01:24,548 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_TplsWgPB0ejEsZDwxVde6ycT/runs/run_iotdyIcuUi2EmPVqryPmY6tj?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '5f032539-27a9-11f0-90d7-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.26.1 azsdk-python-ai-projects/1.0.0b8 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2025-05-03 01:01:24,865 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 02 May 2025 23:01:24 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-03 01:01:25,890 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_TplsWgPB0ejEsZDwxVde6ycT/runs/run_iotdyIcuUi2EmPVqryPmY6tj?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '5fcff7ab-27a9-11f0-b700-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.26.1 azsdk-python-ai-projects/1.0.0b8 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2025-05-03 01:01:26,258 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 02 May 2025 23:01:26 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-03 01:01:27,260 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_TplsWgPB0ejEsZDwxVde6ycT/runs/run_iotdyIcuUi2EmPVqryPmY6tj?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '60a0ea08-27a9-11f0-b81c-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.26.1 azsdk-python-ai-projects/1.0.0b8 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2025-05-03 01:01:28,274 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 02 May 2025 23:01:28 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-03 01:01:29,294 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_TplsWgPB0ejEsZDwxVde6ycT/runs/run_iotdyIcuUi2EmPVqryPmY6tj?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '61d754b4-27a9-11f0-8bd8-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.26.1 azsdk-python-ai-projects/1.0.0b8 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2025-05-03 01:01:29,645 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 02 May 2025 23:01:29 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-03 01:01:30,671 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_TplsWgPB0ejEsZDwxVde6ycT/runs/run_iotdyIcuUi2EmPVqryPmY6tj?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '62a96fe2-27a9-11f0-9044-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.26.1 azsdk-python-ai-projects/1.0.0b8 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2025-05-03 01:01:31,056 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 02 May 2025 23:01:30 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-03 01:01:32,087 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_TplsWgPB0ejEsZDwxVde6ycT/runs/run_iotdyIcuUi2EmPVqryPmY6tj?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '638195da-27a9-11f0-a4e8-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.26.1 azsdk-python-ai-projects/1.0.0b8 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2025-05-03 01:01:32,379 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 02 May 2025 23:01:32 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-03 01:01:33,392 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_TplsWgPB0ejEsZDwxVde6ycT/runs/run_iotdyIcuUi2EmPVqryPmY6tj?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '64489895-27a9-11f0-938d-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.26.1 azsdk-python-ai-projects/1.0.0b8 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2025-05-03 01:01:33,680 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 02 May 2025 23:01:33 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-03 01:01:34,704 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_TplsWgPB0ejEsZDwxVde6ycT/runs/run_iotdyIcuUi2EmPVqryPmY6tj?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '6510ec09-27a9-11f0-8dcc-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.26.1 azsdk-python-ai-projects/1.0.0b8 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2025-05-03 01:01:35,148 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 02 May 2025 23:01:35 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-03 01:01:36,151 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_TplsWgPB0ejEsZDwxVde6ycT/runs/run_iotdyIcuUi2EmPVqryPmY6tj?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '65edab41-27a9-11f0-bca4-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.26.1 azsdk-python-ai-projects/1.0.0b8 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2025-05-03 01:01:36,447 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 02 May 2025 23:01:36 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-03 01:01:36,458 - semantic_kernel.agents.azure_ai.agent_thread_actions - INFO - Polled run status: RunStatus.COMPLETED, run_iotdyIcuUi2EmPVqryPmY6tj, threadId: thread_TplsWgPB0ejEsZDwxVde6ycT
+2025-05-03 01:01:36,464 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_TplsWgPB0ejEsZDwxVde6ycT/runs/run_iotdyIcuUi2EmPVqryPmY6tj/steps?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '661cc9ae-27a9-11f0-9710-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.26.1 azsdk-python-ai-projects/1.0.0b8 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2025-05-03 01:01:36,787 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 02 May 2025 23:01:36 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-03 01:01:36,796 - semantic_kernel.agents.azure_ai.agent_thread_actions - DEBUG - Called for steps_response for run [run_iotdyIcuUi2EmPVqryPmY6tj] agent `harmattan-allinone` and thread `thread_TplsWgPB0ejEsZDwxVde6ycT`
+2025-05-03 01:01:36,800 - semantic_kernel.agents.azure_ai.agent_thread_actions - DEBUG - Completed steps to process for run [run_iotdyIcuUi2EmPVqryPmY6tj] agent `harmattan-allinone` and thread `thread_TplsWgPB0ejEsZDwxVde6ycT` with length `1`
+2025-05-03 01:01:36,803 - semantic_kernel.agents.azure_ai.agent_thread_actions - DEBUG - Entering message_creation for run [run_iotdyIcuUi2EmPVqryPmY6tj], agent `harmattan-allinone` and thread `thread_TplsWgPB0ejEsZDwxVde6ycT`
+2025-05-03 01:01:36,809 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_TplsWgPB0ejEsZDwxVde6ycT/messages/msg_Q0unCVDn5pdWARoPYSOYWGKn?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '6651e766-27a9-11f0-8787-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.26.1 azsdk-python-ai-projects/1.0.0b8 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2025-05-03 01:01:37,126 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 02 May 2025 23:01:37 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-03 01:01:37,136 - semantic_kernel.agents.azure_ai.agent_thread_actions - DEBUG - Yielding message_creation for run [run_iotdyIcuUi2EmPVqryPmY6tj], agent `harmattan-allinone`, thread `thread_TplsWgPB0ejEsZDwxVde6ycT`, message count `1`, is_visible `True`
+2025-05-03 01:01:37,139 - __main__ - INFO - Received response from agent.
+2025-05-03 01:01:37,139 - __main__ - DEBUG - Raw agent response: ```json
+[
+  {
+    "extract": "fracture periprothétique du femur proximal gauche",
+    "code": "S72.0",
+    "description": "Fracture du col du fémur",
+    "url": "https://icd.who.int/browse10/2019/en#/S72.0"
+  },
+  {
+    "extract": "hematome sous dural chronique",
+    "code": "I62.0",
+    "description": "Hématome sous-dural non traumatique",
+    "url": "https://icd.who.int/browse10/2019/en#/I62.0"
+  },
+  {
+    "extract": "trouble de la marche",
+    "code": "R26.2",
+    "description": "Difficulté à marcher, non spécifiée",
+    "url": "https://icd.who.int/browse10/2019/en#/R26.2"
+  },
+  {
+    "extract": "perte d'autonomie",
+    "code": "Z74.1",
+    "description": "Besoin d'aide pour accomplir les activités quotidiennes",
+    "url": "https://icd.who.int/browse10/2019/en#/Z74.1"
+  },
+  {
+    "extract": "HTA",
+    "code": "I10.0",
+    "description": "Hypertension essentielle (primitive)",
+    "url": "https://icd.who.int/browse10/2019/en#/I10.0"
+  },
+  {
+    "extract": "trouble du sommeil",
+    "code": "G47.9",
+    "description": "Trouble du sommeil, non spécifié",
+    "url": "https://icd.who.int/browse10/2019/en#/G47.9"
+  },
+  {
+    "extract": "trouble de la personnalité dépressive",
+    "code": "F34.1",
+    "description": "Trouble dépressif persistant (dysthymie)",
+    "url": "https://icd.who.int/browse10/2019/en#/F34.1"
+  },
+  {
+    "extract": "fibrillation atriale emboligène",
+    "code": "I48.0",
+    "description": "Fibrillation auriculaire et flutter auriculaire",
+    "url": "https://icd.who.int/browse10/2019/en#/I48.0"
+  },
+  {
+    "extract": "AVC ischémique",
+    "code": "I63.9",
+    "description": "Infarctus cérébral, non spécifié",
+    "url": "https://icd.who.int/browse10/2019/en#/I63.9"
+  },
+  {
+    "extract": "cardiopathie hypokinétique",
+    "code": "I51.9",
+    "description": "Maladie cardiaque, non spécifiée",
+    "url": "https://icd.who.int/browse10/2019/en#/I51.9"
+  },
+  {
+    "extract": "fracture du radius droit",
+    "code": "S52.5",
+    "description": "Fracture de l'extrémité inférieure du radius",
+    "url": "https://icd.who.int/browse10/2019/en#/S52.5"
+  },
+  {
+    "extract": "cholecystectomie",
+    "code": "Z90.49",
+    "description": "Absence d'autres organes digestifs",
+    "url": "https://icd.who.int/browse10/2019/en#/Z90.49"
+  },
+  {
+    "extract": "appendicectomie",
+    "code": "Z90.49",
+    "description": "Absence d'autres organes digestifs",
+    "url": "https://icd.who.int/browse10/2019/en#/Z90.49"
+  },
+  {
+    "extract": "algodystrophie du genou gauche",
+    "code": "M89.0",
+    "description": "Ostéopathie réflexe sympathique",
+    "url": "https://icd.who.int/browse10/2019/en#/M89.0"
+  },
+  {
+    "extract": "syndrome anxieux",
+    "code": "F41.1",
+    "description": "Trouble anxieux généralisé",
+    "url": "https://icd.who.int/browse10/2019/en#/F41.1"
+  }
+]
+```
+2025-05-03 01:01:37,173 - __main__ - DEBUG - Attempting to parse JSON: [
+  {
+    "extract": "fracture periprothétique du femur proximal gauche",
+    "code": "S72.0",
+    "description": "Fracture du col du fémur",
+    "url": "https://icd.who.int/browse10/2019/en#/S72.0"
+  },
+  {
+    "extract": "hematome sous dural chronique",
+    "code": "I62.0",
+    "description": "Hématome sous-dural non traumatique",
+    "url": "https://icd.who.int/browse10/2019/en#/I62.0"
+  },
+  {
+    "extract": "trouble de la marche",
+    "code": "R26.2",
+    "description": "Difficulté à marcher, non spécifiée",
+    "url": "https://icd.who.int/browse10/2019/en#/R26.2"
+  },
+  {
+    "extract": "perte d'autonomie",
+    "code": "Z74.1",
+    "description": "Besoin d'aide pour accomplir les activités quotidiennes",
+    "url": "https://icd.who.int/browse10/2019/en#/Z74.1"
+  },
+  {
+    "extract": "HTA",
+    "code": "I10.0",
+    "description": "Hypertension essentielle (primitive)",
+    "url": "https://icd.who.int/browse10/2019/en#/I10.0"
+  },
+  {
+    "extract": "trouble du sommeil",
+    "code": "G47.9",
+    "description": "Trouble du sommeil, non spécifié",
+    "url": "https://icd.who.int/browse10/2019/en#/G47.9"
+  },
+  {
+    "extract": "trouble de la personnalité dépressive",
+    "code": "F34.1",
+    "description": "Trouble dépressif persistant (dysthymie)",
+    "url": "https://icd.who.int/browse10/2019/en#/F34.1"
+  },
+  {
+    "extract": "fibrillation atriale emboligène",
+    "code": "I48.0",
+    "description": "Fibrillation auriculaire et flutter auriculaire",
+    "url": "https://icd.who.int/browse10/2019/en#/I48.0"
+  },
+  {
+    "extract": "AVC ischémique",
+    "code": "I63.9",
+    "description": "Infarctus cérébral, non spécifié",
+    "url": "https://icd.who.int/browse10/2019/en#/I63.9"
+  },
+  {
+    "extract": "cardiopathie hypokinétique",
+    "code": "I51.9",
+    "description": "Maladie cardiaque, non spécifiée",
+    "url": "https://icd.who.int/browse10/2019/en#/I51.9"
+  },
+  {
+    "extract": "fracture du radius droit",
+    "code": "S52.5",
+    "description": "Fracture de l'extrémité inférieure du radius",
+    "url": "https://icd.who.int/browse10/2019/en#/S52.5"
+  },
+  {
+    "extract": "cholecystectomie",
+    "code": "Z90.49",
+    "description": "Absence d'autres organes digestifs",
+    "url": "https://icd.who.int/browse10/2019/en#/Z90.49"
+  },
+  {
+    "extract": "appendicectomie",
+    "code": "Z90.49",
+    "description": "Absence d'autres organes digestifs",
+    "url": "https://icd.who.int/browse10/2019/en#/Z90.49"
+  },
+  {
+    "extract": "algodystrophie du genou gauche",
+    "code": "M89.0",
+    "description": "Ostéopathie réflexe sympathique",
+    "url": "https://icd.who.int/browse10/2019/en#/M89.0"
+  },
+  {
+    "extract": "syndrome anxieux",
+    "code": "F41.1",
+    "description": "Trouble anxieux généralisé",
+    "url": "https://icd.who.int/browse10/2019/en#/F41.1"
+  }
+]
+2025-05-03 01:01:37,209 - __main__ - INFO - Successfully parsed agent response into a list of 15 items.
+2025-05-03 01:01:37,209 - __main__ - INFO - Agent analysis successful, 15 items returned.
+2025-05-03 01:02:06,753 - asyncio - DEBUG - Using selector: SelectSelector
+2025-05-03 01:02:06,771 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:02:06,773 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:02:06,774 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:02:06,774 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:02:06,779 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:02:06,779 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:02:06,816 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:02:06,816 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:02:06,816 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:02:06,823 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:02:06,824 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:02:06,828 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:02:07,072 - __main__ - INFO - Save Validated Codes button clicked.
+2025-05-03 01:02:07,139 - __main__ - DEBUG - Data prepared for validation dialog: [{'extract': 'algodystrophie du genou gauche', 'code': 'M89.0', 'description': 'Ostéopathie réflexe sympathique', 'url': 'https://icd.who.int/browse10/2019/en#/M89.0'}, {'extract': 'syndrome anxieux', 'code': 'F41.1', 'description': 'Trouble anxieux généralisé', 'url': 'https://icd.who.int/browse10/2019/en#/F41.1'}]
+2025-05-03 01:02:07,204 - __main__ - INFO - 2 codes validated for system Hopital Management.
+2025-05-03 01:03:10,162 - asyncio - DEBUG - Using selector: SelectSelector
+2025-05-03 01:03:10,170 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:03:10,170 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:03:10,187 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:03:10,190 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:03:10,205 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:03:10,207 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:03:10,255 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:03:10,262 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:03:10,266 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:03:10,266 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:03:10,270 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:03:10,273 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:03:28,588 - asyncio - DEBUG - Using selector: SelectSelector
+2025-05-03 01:03:28,834 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:03:28,837 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:03:28,839 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:03:28,841 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:03:28,841 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:03:28,841 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:03:28,870 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:03:28,871 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:03:28,873 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:03:28,873 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:03:28,880 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:03:28,883 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:04:59,813 - asyncio - DEBUG - Using selector: SelectSelector
+2025-05-03 01:04:59,817 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:04:59,817 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:04:59,817 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:04:59,828 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:04:59,833 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:04:59,838 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:04:59,897 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:04:59,904 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:04:59,906 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:04:59,916 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:04:59,923 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:04:59,931 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:05:00,268 - __main__ - INFO - Save Validated Codes button clicked.
+2025-05-03 01:05:00,278 - __main__ - DEBUG - Data prepared for validation dialog: [{'extract': 'algodystrophie du genou gauche', 'code': 'M89.0', 'description': 'Ostéopathie réflexe sympathique', 'url': 'https://icd.who.int/browse10/2019/en#/M89.0'}, {'extract': 'syndrome anxieux', 'code': 'F41.1', 'description': 'Trouble anxieux généralisé', 'url': 'https://icd.who.int/browse10/2019/en#/F41.1'}]
+2025-05-03 01:05:00,291 - __main__ - INFO - 2 codes validated for system Hopital Management.
+2025-05-03 01:05:13,194 - asyncio - DEBUG - Using selector: SelectSelector
+2025-05-03 01:05:13,207 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:05:13,208 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:05:13,211 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:05:13,214 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:05:13,217 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:05:13,217 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:05:13,264 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:05:13,264 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:05:13,264 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
+2025-05-03 01:05:13,274 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-05-03 01:05:13,276 - PIL.PngImagePlugin - DEBUG - STREAM b'sRGB' 41 1
+2025-05-03 01:05:13,281 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 54 8192
