@@ -341,7 +341,7 @@ if st.session_state.agent_response_data:
             # Checkbox for validation - state managed by Streamlit using the key
             # Use the index as part of the key for uniqueness
             validation_key = f"validate_{idx}"
-            is_validated = cols[4].checkbox("", key=validation_key, value=st.session_state.validation_states.get(validation_key, False))
+            is_validated = cols[4].checkbox("Validate", key=validation_key, value=st.session_state.validation_states.get(validation_key, False),label_visibility="collapsed")
             # Update the central validation state tracker immediately (though form submission is the final trigger)
             st.session_state.validation_states[validation_key] = is_validated
 
