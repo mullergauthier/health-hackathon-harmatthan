@@ -1,25 +1,118 @@
-2025-05-03 12:19:26,411 - __main__ - INFO - Analyze button clicked, processing notes.
-2025-05-03 12:19:26,413 - __main__ - INFO - Attempting to run agent asst_S96IdpHu5luCGKC7aNRYWPjT...
-2025-05-03 12:19:26,413 - azure.identity.aio._credentials.environment - INFO - No environment configuration found.
-2025-05-03 12:19:27,259 - azure.identity.aio._credentials.managed_identity - INFO - ManagedIdentityCredential will use IMDS
-2025-05-03 12:19:27,264 - semantic_kernel - WARNING - The create method is deprecated. Use the __new__ method instead.
-2025-05-03 12:19:27,267 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=REDACTED&resource=REDACTED'
-Request method: 'GET'
+2025-05-09 12:17:54,009 - __main__ - INFO - Analyze button clicked, processing notes.
+2025-05-09 12:17:54,009 - __main__ - INFO - Attempting to run agent asst_S96IdpHu5luCGKC7aNRYWPjT...
+2025-05-09 12:17:54,194 - semantic_kernel - WARNING - The create method is deprecated. Use the __new__ method instead.
+2025-05-09 12:17:54,194 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://login.microsoftonline.com/6fade94d-0591-483f-b938-2715bb31e2db/oauth2/v2.0/token'
+Request method: 'POST'
 Request headers:
+    'Content-Type': 'application/x-www-form-urlencoded'
     'User-Agent': 'azsdk-python-identity/1.21.0 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
-No body was attached to the request
-2025-05-03 12:19:30,808 - azure.identity.aio._credentials.chained - INFO - DefaultAzureCredential acquired a token from AzureCliCredential
-2025-05-03 12:19:30,808 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/assistants/asst_S96IdpHu5luCGKC7aNRYWPjT?api-version=REDACTED'
+A body is sent with the request
+2025-05-09 12:17:54,509 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Cache-Control': 'no-store, no-cache'
+    'Pragma': 'no-cache'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Expires': '-1'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'P3P': 'REDACTED'
+    'x-ms-request-id': '30ee9794-56c3-44d7-b5e8-9475016c4400'
+    'x-ms-ests-server': 'REDACTED'
+    'x-ms-srs': 'REDACTED'
+    'Content-Security-Policy-Report-Only': 'REDACTED'
+    'X-XSS-Protection': 'REDACTED'
+    'Set-Cookie': 'REDACTED'
+    'Set-Cookie': 'REDACTED'
+    'Set-Cookie': 'REDACTED'
+    'Date': 'Fri, 09 May 2025 10:17:53 GMT'
+    'Content-Length': '1509'
+2025-05-09 12:17:54,513 - azure.identity.aio._internal.get_token_mixin - INFO - ClientSecretCredential.get_token_info succeeded
+2025-05-09 12:17:54,513 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/assistants/asst_S96IdpHu5luCGKC7aNRYWPjT?api-version=REDACTED'
 Request method: 'GET'
 Request headers:
     'Accept': 'application/json'
-    'x-ms-client-request-id': '17cd2d68-2808-11f0-bd50-88d82ed51d57'
+    'x-ms-client-request-id': 'dece1192-2cbe-11f0-b673-88d82ed51d57'
     'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
     'Authorization': 'REDACTED'
 No body was attached to the request
-2025-05-03 12:19:32,337 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+2025-05-09 12:17:55,109 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 403
 Response headers:
-    'Date': 'Sat, 03 May 2025 10:19:32 GMT'
+    'Date': 'Fri, 09 May 2025 10:17:55 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-09 12:17:55,115 - __main__ - ERROR - Azure API Error: Status=403, Reason=Identity(object id: b9006b9f-5c09-4ca9-ad7e-8c98e9404e44) does not have permissions for Microsoft.Ma, Message=(UserError) Identity(object id: b9006b9f-5c09-4ca9-ad7e-8c98e9404e44) does not have permissions for Microsoft.MachineLearningServices/workspaces/agents/read actions. Please refer to https://aka.ms/azureml-auth-troubleshooting to fix the permissions issue.
+Code: UserError
+Message: Identity(object id: b9006b9f-5c09-4ca9-ad7e-8c98e9404e44) does not have permissions for Microsoft.MachineLearningServices/workspaces/agents/read actions. Please refer to https://aka.ms/azureml-auth-troubleshooting to fix the permissions issue.
+Traceback (most recent call last):
+  File "C:\Users\mullerg\health-hackathon-harmatthan\app.py", line 84, in run_agent
+    agent_def = await asyncio.wait_for(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\tasks.py", line 489, in wait_for
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 203, in result
+    raise self._exception.with_traceback(self._exception_tb)
+  File "C:\Users\mullerg\AppData\Local\Programs\Python\Python311\Lib\asyncio\tasks.py", line 277, in __step
+    result = coro.send(None)
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\core\tracing\decorator_async.py", line 119, in wrapper_use_tracer
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mullerg\health-hackathon-harmatthan\venv\Lib\site-packages\azure\ai\projects\aio\operations\_operations.py", line 513, in get_agent
+    raise HttpResponseError(response=response)
+azure.core.exceptions.HttpResponseError: (UserError) Identity(object id: b9006b9f-5c09-4ca9-ad7e-8c98e9404e44) does not have permissions for Microsoft.MachineLearningServices/workspaces/agents/read actions. Please refer to https://aka.ms/azureml-auth-troubleshooting to fix the permissions issue.
+Code: UserError
+Message: Identity(object id: b9006b9f-5c09-4ca9-ad7e-8c98e9404e44) does not have permissions for Microsoft.MachineLearningServices/workspaces/agents/read actions. Please refer to https://aka.ms/azureml-auth-troubleshooting to fix the permissions issue.
+2025-05-09 12:17:55,189 - __main__ - WARNING - Agent analysis resulted in an error or no data.
+2025-05-09 12:23:52,025 - __main__ - INFO - Analyze button clicked, processing notes.
+2025-05-09 12:23:52,025 - __main__ - INFO - Attempting to run agent asst_S96IdpHu5luCGKC7aNRYWPjT...
+2025-05-09 12:23:52,027 - semantic_kernel - WARNING - The create method is deprecated. Use the __new__ method instead.
+2025-05-09 12:23:52,028 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://login.microsoftonline.com/6fade94d-0591-483f-b938-2715bb31e2db/oauth2/v2.0/token'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/x-www-form-urlencoded'
+    'User-Agent': 'azsdk-python-identity/1.21.0 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+A body is sent with the request
+2025-05-09 12:23:52,448 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Cache-Control': 'no-store, no-cache'
+    'Pragma': 'no-cache'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Expires': '-1'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'P3P': 'REDACTED'
+    'x-ms-request-id': '91afa43d-1b4a-4c27-a797-8cc5d1db3100'
+    'x-ms-ests-server': 'REDACTED'
+    'x-ms-srs': 'REDACTED'
+    'Content-Security-Policy-Report-Only': 'REDACTED'
+    'X-XSS-Protection': 'REDACTED'
+    'Set-Cookie': 'REDACTED'
+    'Set-Cookie': 'REDACTED'
+    'Set-Cookie': 'REDACTED'
+    'Date': 'Fri, 09 May 2025 10:23:52 GMT'
+    'Content-Length': '1509'
+2025-05-09 12:23:52,448 - azure.identity.aio._internal.get_token_mixin - INFO - ClientSecretCredential.get_token_info succeeded
+2025-05-09 12:23:52,448 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/assistants/asst_S96IdpHu5luCGKC7aNRYWPjT?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'b41734b8-2cbf-11f0-85ef-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2025-05-09 12:23:53,618 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 09 May 2025 10:23:53 GMT'
     'Content-Type': 'application/json'
     'Transfer-Encoding': 'chunked'
     'Connection': 'keep-alive'
@@ -38,20 +131,20 @@ Response headers:
     'azureml-served-by-cluster': 'REDACTED'
     'x-request-time': 'REDACTED'
     'Content-Encoding': 'REDACTED'
-2025-05-03 12:19:32,346 - __main__ - INFO - Sending request to agent...
-2025-05-03 12:19:32,349 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads?api-version=REDACTED'
+2025-05-09 12:23:53,618 - __main__ - INFO - Sending request to agent...
+2025-05-09 12:23:53,622 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads?api-version=REDACTED'
 Request method: 'POST'
 Request headers:
     'Content-Type': 'application/json'
     'Content-Length': '16'
     'Accept': 'application/json'
-    'x-ms-client-request-id': '1ad4c591-2808-11f0-83f0-88d82ed51d57'
+    'x-ms-client-request-id': 'b50a7e46-2cbf-11f0-b383-88d82ed51d57'
     'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
     'Authorization': 'REDACTED'
 A body is sent with the request
-2025-05-03 12:19:33,028 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+2025-05-09 12:23:54,068 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
 Response headers:
-    'Date': 'Sat, 03 May 2025 10:19:32 GMT'
+    'Date': 'Fri, 09 May 2025 10:23:54 GMT'
     'Content-Type': 'application/json'
     'Content-Length': '137'
     'Connection': 'keep-alive'
@@ -68,19 +161,19 @@ Response headers:
     'x-ms-region': 'REDACTED'
     'azureml-served-by-cluster': 'REDACTED'
     'x-request-time': 'REDACTED'
-2025-05-03 12:19:33,032 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_kD1kRKZHYsKQl3rTG95Ima6i/messages?api-version=REDACTED'
+2025-05-09 12:23:54,068 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_HDjz5kubC7IuwHQlIafoy07S/messages?api-version=REDACTED'
 Request method: 'POST'
 Request headers:
     'Content-Type': 'application/json'
-    'Content-Length': '8767'
+    'Content-Length': '71'
     'Accept': 'application/json'
-    'x-ms-client-request-id': '1b3cfe1a-2808-11f0-aad1-88d82ed51d57'
+    'x-ms-client-request-id': 'b54e7e6a-2cbf-11f0-ba05-88d82ed51d57'
     'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
     'Authorization': 'REDACTED'
 A body is sent with the request
-2025-05-03 12:19:33,435 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+2025-05-09 12:23:54,438 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
 Response headers:
-    'Date': 'Sat, 03 May 2025 10:19:33 GMT'
+    'Date': 'Fri, 09 May 2025 10:23:54 GMT'
     'Content-Type': 'application/json'
     'Transfer-Encoding': 'chunked'
     'Connection': 'keep-alive'
@@ -99,19 +192,19 @@ Response headers:
     'azureml-served-by-cluster': 'REDACTED'
     'x-request-time': 'REDACTED'
     'Content-Encoding': 'REDACTED'
-2025-05-03 12:19:33,442 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_kD1kRKZHYsKQl3rTG95Ima6i/runs?api-version=REDACTED'
+2025-05-09 12:23:54,458 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_HDjz5kubC7IuwHQlIafoy07S/runs?api-version=REDACTED'
 Request method: 'POST'
 Request headers:
     'Content-Type': 'application/json'
     'Content-Length': '1155'
     'Accept': 'application/json'
-    'x-ms-client-request-id': '1b7bbafe-2808-11f0-91f9-88d82ed51d57'
+    'x-ms-client-request-id': 'b58a09a4-2cbf-11f0-b168-88d82ed51d57'
     'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
     'Authorization': 'REDACTED'
 A body is sent with the request
-2025-05-03 12:19:34,424 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+2025-05-09 12:23:55,298 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
 Response headers:
-    'Date': 'Sat, 03 May 2025 10:19:34 GMT'
+    'Date': 'Fri, 09 May 2025 10:23:55 GMT'
     'Content-Type': 'application/json'
     'Transfer-Encoding': 'chunked'
     'Connection': 'keep-alive'
@@ -130,18 +223,18 @@ Response headers:
     'azureml-served-by-cluster': 'REDACTED'
     'x-request-time': 'REDACTED'
     'Content-Encoding': 'REDACTED'
-2025-05-03 12:19:34,425 - semantic_kernel.agents.azure_ai.agent_thread_actions - INFO - Polling run status: run_Wa4dkUSNsRcwMTE45pUg5euW, threadId: thread_kD1kRKZHYsKQl3rTG95Ima6i
-2025-05-03 12:19:34,677 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_kD1kRKZHYsKQl3rTG95Ima6i/runs/run_Wa4dkUSNsRcwMTE45pUg5euW?api-version=REDACTED'
+2025-05-09 12:23:55,298 - semantic_kernel.agents.azure_ai.agent_thread_actions - INFO - Polling run status: run_7Yp3543REo6p21v17Z0cUgCa, threadId: thread_HDjz5kubC7IuwHQlIafoy07S
+2025-05-09 12:23:55,553 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_HDjz5kubC7IuwHQlIafoy07S/runs/run_7Yp3543REo6p21v17Z0cUgCa?api-version=REDACTED'
 Request method: 'GET'
 Request headers:
     'Accept': 'application/json'
-    'x-ms-client-request-id': '1c382d67-2808-11f0-93c8-88d82ed51d57'
+    'x-ms-client-request-id': 'b6311e28-2cbf-11f0-84df-88d82ed51d57'
     'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
     'Authorization': 'REDACTED'
 No body was attached to the request
-2025-05-03 12:19:35,066 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+2025-05-09 12:23:55,880 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
 Response headers:
-    'Date': 'Sat, 03 May 2025 10:19:35 GMT'
+    'Date': 'Fri, 09 May 2025 10:23:55 GMT'
     'Content-Type': 'application/json'
     'Transfer-Encoding': 'chunked'
     'Connection': 'keep-alive'
@@ -160,17 +253,17 @@ Response headers:
     'azureml-served-by-cluster': 'REDACTED'
     'x-request-time': 'REDACTED'
     'Content-Encoding': 'REDACTED'
-2025-05-03 12:19:35,324 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_kD1kRKZHYsKQl3rTG95Ima6i/runs/run_Wa4dkUSNsRcwMTE45pUg5euW?api-version=REDACTED'
+2025-05-09 12:23:56,139 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_HDjz5kubC7IuwHQlIafoy07S/runs/run_7Yp3543REo6p21v17Z0cUgCa?api-version=REDACTED'
 Request method: 'GET'
 Request headers:
     'Accept': 'application/json'
-    'x-ms-client-request-id': '1c9ab62e-2808-11f0-b013-88d82ed51d57'
+    'x-ms-client-request-id': 'b68a8888-2cbf-11f0-84e0-88d82ed51d57'
     'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
     'Authorization': 'REDACTED'
 No body was attached to the request
-2025-05-03 12:19:35,625 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+2025-05-09 12:23:56,439 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
 Response headers:
-    'Date': 'Sat, 03 May 2025 10:19:35 GMT'
+    'Date': 'Fri, 09 May 2025 10:23:56 GMT'
     'Content-Type': 'application/json'
     'Transfer-Encoding': 'chunked'
     'Connection': 'keep-alive'
@@ -189,17 +282,17 @@ Response headers:
     'azureml-served-by-cluster': 'REDACTED'
     'x-request-time': 'REDACTED'
     'Content-Encoding': 'REDACTED'
-2025-05-03 12:19:35,889 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_kD1kRKZHYsKQl3rTG95Ima6i/runs/run_Wa4dkUSNsRcwMTE45pUg5euW?api-version=REDACTED'
+2025-05-09 12:23:56,690 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_HDjz5kubC7IuwHQlIafoy07S/runs/run_7Yp3543REo6p21v17Z0cUgCa?api-version=REDACTED'
 Request method: 'GET'
 Request headers:
     'Accept': 'application/json'
-    'x-ms-client-request-id': '1cf10567-2808-11f0-90dd-88d82ed51d57'
+    'x-ms-client-request-id': 'b6dea530-2cbf-11f0-8616-88d82ed51d57'
     'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
     'Authorization': 'REDACTED'
 No body was attached to the request
-2025-05-03 12:19:36,189 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+2025-05-09 12:23:57,028 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
 Response headers:
-    'Date': 'Sat, 03 May 2025 10:19:36 GMT'
+    'Date': 'Fri, 09 May 2025 10:23:56 GMT'
     'Content-Type': 'application/json'
     'Transfer-Encoding': 'chunked'
     'Connection': 'keep-alive'
@@ -218,17 +311,18 @@ Response headers:
     'azureml-served-by-cluster': 'REDACTED'
     'x-request-time': 'REDACTED'
     'Content-Encoding': 'REDACTED'
-2025-05-03 12:19:37,197 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_kD1kRKZHYsKQl3rTG95Ima6i/runs/run_Wa4dkUSNsRcwMTE45pUg5euW?api-version=REDACTED'
+2025-05-09 12:23:57,028 - semantic_kernel.agents.azure_ai.agent_thread_actions - INFO - Polled run status: RunStatus.COMPLETED, run_7Yp3543REo6p21v17Z0cUgCa, threadId: thread_HDjz5kubC7IuwHQlIafoy07S
+2025-05-09 12:23:57,028 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_HDjz5kubC7IuwHQlIafoy07S/runs/run_7Yp3543REo6p21v17Z0cUgCa/steps?api-version=REDACTED'
 Request method: 'GET'
 Request headers:
     'Accept': 'application/json'
-    'x-ms-client-request-id': '1db8a152-2808-11f0-8b4f-88d82ed51d57'
+    'x-ms-client-request-id': 'b7122ed7-2cbf-11f0-bd3a-88d82ed51d57'
     'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
     'Authorization': 'REDACTED'
 No body was attached to the request
-2025-05-03 12:19:37,554 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+2025-05-09 12:23:57,359 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
 Response headers:
-    'Date': 'Sat, 03 May 2025 10:19:37 GMT'
+    'Date': 'Fri, 09 May 2025 10:23:57 GMT'
     'Content-Type': 'application/json'
     'Transfer-Encoding': 'chunked'
     'Connection': 'keep-alive'
@@ -247,17 +341,17 @@ Response headers:
     'azureml-served-by-cluster': 'REDACTED'
     'x-request-time': 'REDACTED'
     'Content-Encoding': 'REDACTED'
-2025-05-03 12:19:38,561 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_kD1kRKZHYsKQl3rTG95Ima6i/runs/run_Wa4dkUSNsRcwMTE45pUg5euW?api-version=REDACTED'
+2025-05-09 12:23:57,364 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_HDjz5kubC7IuwHQlIafoy07S/messages/msg_1QxoOJwTNpqn7frZjnqJM3EP?api-version=REDACTED'
 Request method: 'GET'
 Request headers:
     'Accept': 'application/json'
-    'x-ms-client-request-id': '1e88883c-2808-11f0-a27b-88d82ed51d57'
+    'x-ms-client-request-id': 'b74582a7-2cbf-11f0-8b6d-88d82ed51d57'
     'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
     'Authorization': 'REDACTED'
 No body was attached to the request
-2025-05-03 12:19:38,884 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+2025-05-09 12:23:57,659 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
 Response headers:
-    'Date': 'Sat, 03 May 2025 10:19:38 GMT'
+    'Date': 'Fri, 09 May 2025 10:23:57 GMT'
     'Content-Type': 'application/json'
     'Transfer-Encoding': 'chunked'
     'Connection': 'keep-alive'
@@ -276,17 +370,49 @@ Response headers:
     'azureml-served-by-cluster': 'REDACTED'
     'x-request-time': 'REDACTED'
     'Content-Encoding': 'REDACTED'
-2025-05-03 12:19:39,898 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_kD1kRKZHYsKQl3rTG95Ima6i/runs/run_Wa4dkUSNsRcwMTE45pUg5euW?api-version=REDACTED'
+2025-05-09 12:23:57,659 - __main__ - INFO - Received response from agent.
+2025-05-09 12:23:57,659 - __main__ - INFO - Successfully parsed agent response into a list of 0 items.
+2025-05-09 12:23:57,659 - __main__ - INFO - Agent analysis completed but returned an empty list.
+2025-05-09 12:24:03,518 - __main__ - INFO - Analyze button clicked, processing notes.
+2025-05-09 12:24:03,521 - __main__ - INFO - Attempting to run agent asst_S96IdpHu5luCGKC7aNRYWPjT...
+2025-05-09 12:24:03,523 - semantic_kernel - WARNING - The create method is deprecated. Use the __new__ method instead.
+2025-05-09 12:24:03,523 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://login.microsoftonline.com/6fade94d-0591-483f-b938-2715bb31e2db/oauth2/v2.0/token'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/x-www-form-urlencoded'
+    'User-Agent': 'azsdk-python-identity/1.21.0 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+A body is sent with the request
+2025-05-09 12:24:03,858 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Cache-Control': 'no-store, no-cache'
+    'Pragma': 'no-cache'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Expires': '-1'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'P3P': 'REDACTED'
+    'x-ms-request-id': '5c3e162b-897f-4d59-9f1d-5d6f58974900'
+    'x-ms-ests-server': 'REDACTED'
+    'x-ms-srs': 'REDACTED'
+    'Content-Security-Policy-Report-Only': 'REDACTED'
+    'X-XSS-Protection': 'REDACTED'
+    'Set-Cookie': 'REDACTED'
+    'Set-Cookie': 'REDACTED'
+    'Set-Cookie': 'REDACTED'
+    'Date': 'Fri, 09 May 2025 10:24:03 GMT'
+    'Content-Length': '1509'
+2025-05-09 12:24:03,868 - azure.identity.aio._internal.get_token_mixin - INFO - ClientSecretCredential.get_token_info succeeded
+2025-05-09 12:24:03,868 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/assistants/asst_S96IdpHu5luCGKC7aNRYWPjT?api-version=REDACTED'
 Request method: 'GET'
 Request headers:
     'Accept': 'application/json'
-    'x-ms-client-request-id': '1f54d5d3-2808-11f0-8147-88d82ed51d57'
+    'x-ms-client-request-id': 'baf14ae5-2cbf-11f0-aaa9-88d82ed51d57'
     'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
     'Authorization': 'REDACTED'
 No body was attached to the request
-2025-05-03 12:19:40,806 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+2025-05-09 12:24:04,708 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
 Response headers:
-    'Date': 'Sat, 03 May 2025 10:19:40 GMT'
+    'Date': 'Fri, 09 May 2025 10:24:04 GMT'
     'Content-Type': 'application/json'
     'Transfer-Encoding': 'chunked'
     'Connection': 'keep-alive'
@@ -305,17 +431,110 @@ Response headers:
     'azureml-served-by-cluster': 'REDACTED'
     'x-request-time': 'REDACTED'
     'Content-Encoding': 'REDACTED'
-2025-05-03 12:19:41,818 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_kD1kRKZHYsKQl3rTG95Ima6i/runs/run_Wa4dkUSNsRcwMTE45pUg5euW?api-version=REDACTED'
+2025-05-09 12:24:04,708 - __main__ - INFO - Sending request to agent...
+2025-05-09 12:24:04,708 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads?api-version=REDACTED'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '16'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'bba61686-2cbf-11f0-b2fa-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+2025-05-09 12:24:05,053 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 09 May 2025 10:24:05 GMT'
+    'Content-Type': 'application/json'
+    'Content-Length': '137'
+    'Connection': 'keep-alive'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+2025-05-09 12:24:05,053 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_hOUbn3qXKEK0FD4wPb0oGDgS/messages?api-version=REDACTED'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '71'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'bbdab483-2cbf-11f0-b351-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+2025-05-09 12:24:05,410 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 09 May 2025 10:24:05 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-09 12:24:05,413 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_hOUbn3qXKEK0FD4wPb0oGDgS/runs?api-version=REDACTED'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '1155'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'bc11b764-2cbf-11f0-a0f5-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+2025-05-09 12:24:06,079 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 09 May 2025 10:24:06 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-09 12:24:06,079 - semantic_kernel.agents.azure_ai.agent_thread_actions - INFO - Polling run status: run_oceZ9w7c5qfLCgzzSXTw93KO, threadId: thread_hOUbn3qXKEK0FD4wPb0oGDgS
+2025-05-09 12:24:06,345 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_hOUbn3qXKEK0FD4wPb0oGDgS/runs/run_oceZ9w7c5qfLCgzzSXTw93KO?api-version=REDACTED'
 Request method: 'GET'
 Request headers:
     'Accept': 'application/json'
-    'x-ms-client-request-id': '20799d37-2808-11f0-beb7-88d82ed51d57'
+    'x-ms-client-request-id': 'bc9ff277-2cbf-11f0-b711-88d82ed51d57'
     'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
     'Authorization': 'REDACTED'
 No body was attached to the request
-2025-05-03 12:19:42,160 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+2025-05-09 12:24:06,648 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
 Response headers:
-    'Date': 'Sat, 03 May 2025 10:19:42 GMT'
+    'Date': 'Fri, 09 May 2025 10:24:06 GMT'
     'Content-Type': 'application/json'
     'Transfer-Encoding': 'chunked'
     'Connection': 'keep-alive'
@@ -334,17 +553,17 @@ Response headers:
     'azureml-served-by-cluster': 'REDACTED'
     'x-request-time': 'REDACTED'
     'Content-Encoding': 'REDACTED'
-2025-05-03 12:19:43,174 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_kD1kRKZHYsKQl3rTG95Ima6i/runs/run_Wa4dkUSNsRcwMTE45pUg5euW?api-version=REDACTED'
+2025-05-09 12:24:06,913 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_hOUbn3qXKEK0FD4wPb0oGDgS/runs/run_oceZ9w7c5qfLCgzzSXTw93KO?api-version=REDACTED'
 Request method: 'GET'
 Request headers:
     'Accept': 'application/json'
-    'x-ms-client-request-id': '21488dbb-2808-11f0-b518-88d82ed51d57'
+    'x-ms-client-request-id': 'bcf68e06-2cbf-11f0-a172-88d82ed51d57'
     'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
     'Authorization': 'REDACTED'
 No body was attached to the request
-2025-05-03 12:19:44,652 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+2025-05-09 12:24:07,246 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
 Response headers:
-    'Date': 'Sat, 03 May 2025 10:19:44 GMT'
+    'Date': 'Fri, 09 May 2025 10:24:07 GMT'
     'Content-Type': 'application/json'
     'Transfer-Encoding': 'chunked'
     'Connection': 'keep-alive'
@@ -363,18 +582,17 @@ Response headers:
     'azureml-served-by-cluster': 'REDACTED'
     'x-request-time': 'REDACTED'
     'Content-Encoding': 'REDACTED'
-2025-05-03 12:19:44,654 - semantic_kernel.agents.azure_ai.agent_thread_actions - INFO - Polled run status: RunStatus.COMPLETED, run_Wa4dkUSNsRcwMTE45pUg5euW, threadId: thread_kD1kRKZHYsKQl3rTG95Ima6i
-2025-05-03 12:19:44,655 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_kD1kRKZHYsKQl3rTG95Ima6i/runs/run_Wa4dkUSNsRcwMTE45pUg5euW/steps?api-version=REDACTED'
+2025-05-09 12:24:07,498 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_hOUbn3qXKEK0FD4wPb0oGDgS/runs/run_oceZ9w7c5qfLCgzzSXTw93KO?api-version=REDACTED'
 Request method: 'GET'
 Request headers:
     'Accept': 'application/json'
-    'x-ms-client-request-id': '222aa950-2808-11f0-85e4-88d82ed51d57'
+    'x-ms-client-request-id': 'bd4fc6bc-2cbf-11f0-99cc-88d82ed51d57'
     'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
     'Authorization': 'REDACTED'
 No body was attached to the request
-2025-05-03 12:19:44,971 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+2025-05-09 12:24:07,758 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
 Response headers:
-    'Date': 'Sat, 03 May 2025 10:19:44 GMT'
+    'Date': 'Fri, 09 May 2025 10:24:07 GMT'
     'Content-Type': 'application/json'
     'Transfer-Encoding': 'chunked'
     'Connection': 'keep-alive'
@@ -393,17 +611,17 @@ Response headers:
     'azureml-served-by-cluster': 'REDACTED'
     'x-request-time': 'REDACTED'
     'Content-Encoding': 'REDACTED'
-2025-05-03 12:19:44,974 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_kD1kRKZHYsKQl3rTG95Ima6i/messages/msg_QOsuT3MFKs2mGrz04EgbdawE?api-version=REDACTED'
+2025-05-09 12:24:08,767 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_hOUbn3qXKEK0FD4wPb0oGDgS/runs/run_oceZ9w7c5qfLCgzzSXTw93KO?api-version=REDACTED'
 Request method: 'GET'
 Request headers:
     'Accept': 'application/json'
-    'x-ms-client-request-id': '225b5e1e-2808-11f0-8238-88d82ed51d57'
+    'x-ms-client-request-id': 'be11787e-2cbf-11f0-b3c5-88d82ed51d57'
     'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
     'Authorization': 'REDACTED'
 No body was attached to the request
-2025-05-03 12:19:45,266 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+2025-05-09 12:24:09,098 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
 Response headers:
-    'Date': 'Sat, 03 May 2025 10:19:45 GMT'
+    'Date': 'Fri, 09 May 2025 10:24:09 GMT'
     'Content-Type': 'application/json'
     'Transfer-Encoding': 'chunked'
     'Connection': 'keep-alive'
@@ -422,6 +640,65 @@ Response headers:
     'azureml-served-by-cluster': 'REDACTED'
     'x-request-time': 'REDACTED'
     'Content-Encoding': 'REDACTED'
-2025-05-03 12:19:45,268 - __main__ - INFO - Received response from agent.
-2025-05-03 12:19:45,268 - __main__ - INFO - Successfully parsed agent response into a list of 15 items.
-2025-05-03 12:19:45,268 - __main__ - INFO - Agent analysis successful, 15 items returned.
+2025-05-09 12:24:09,098 - semantic_kernel.agents.azure_ai.agent_thread_actions - INFO - Polled run status: RunStatus.COMPLETED, run_oceZ9w7c5qfLCgzzSXTw93KO, threadId: thread_hOUbn3qXKEK0FD4wPb0oGDgS
+2025-05-09 12:24:09,098 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_hOUbn3qXKEK0FD4wPb0oGDgS/runs/run_oceZ9w7c5qfLCgzzSXTw93KO/steps?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'be43f281-2cbf-11f0-845f-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2025-05-09 12:24:09,419 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 09 May 2025 10:24:09 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-09 12:24:09,420 - azure.core.pipeline.policies.http_logging_policy - INFO - Request URL: 'https://swedencentral.api.azureml.ms/agents/v1.0/subscriptions/25f890e9-d57b-4fd3-9097-9ade8f7768b2/resourceGroups/rg-ai-gauthier-swc-1/providers/Microsoft.MachineLearningServices/workspaces/aip-harmattanai-swc-1/threads/thread_hOUbn3qXKEK0FD4wPb0oGDgS/messages/msg_bWXgKolVehxAFv4XwRSCFQNo?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'be750e89-2cbf-11f0-9822-88d82ed51d57'
+    'User-Agent': 'semantic-kernel-python/1.29.0 azsdk-python-ai-projects/1.0.0b10 Python/3.11.9 (Windows-10-10.0.22631-SP0)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2025-05-09 12:24:10,038 - azure.core.pipeline.policies.http_logging_policy - INFO - Response status: 200
+Response headers:
+    'Date': 'Fri, 09 May 2025 10:24:09 GMT'
+    'Content-Type': 'application/json'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-ms-middleware-request-id': 'REDACTED'
+    'openai-version': 'REDACTED'
+    'openai-organization': 'REDACTED'
+    'X-Request-ID': 'REDACTED'
+    'openai-processing-ms': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+2025-05-09 12:24:10,038 - __main__ - INFO - Received response from agent.
+2025-05-09 12:24:10,038 - __main__ - INFO - Successfully parsed agent response into a list of 2 items.
+2025-05-09 12:24:10,038 - __main__ - INFO - Agent analysis successful, 2 items returned.

@@ -6,7 +6,7 @@ import json
 import pandas as pd
 import logging
 import re  # Import regex for JSON extraction
-from azure.identity.aio import DefaultAzureCredential
+from azure.identity.aio import DefaultAzureCredential,ClientSecretCredential
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError
 from semantic_kernel.agents import AzureAIAgent, AzureAIAgentThread, AzureAIAgentSettings
 
@@ -68,7 +68,14 @@ async def run_agent(user_input: str) -> str | None:
     logger.info(f"Attempting to run agent {AGENT_ID}...")
     try:
         # Use DefaultAzureCredential, configured via environment variables set from secrets.toml
-        async with DefaultAzureCredential() as creds, AzureAIAgent.create_client(credential=creds) as client:
+
+        creds = ClientSecretCredential(
+            tenant_id=st.secrets.azure.AZURE_TENANT_ID,
+            client_id=st.secrets.azure.AZURE_CLIENT_ID,
+            client_secret=st.secrets.azure.AZURE_CLIENT_SECRET,    
+        )
+
+        async with creds, AzureAIAgent.create_client(credential=creds) as client:
             logger.debug("Azure credentials and AI client created.")
             settings = AzureAIAgentSettings.create() # Uses env vars
 
