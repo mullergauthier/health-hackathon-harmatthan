@@ -4,4 +4,6 @@ azure.identity
 azure.ai.projects
 azure.core
 azure.ai.projects
+azure-monitor-opentelemetry
 authlib
+azure.ai.inference

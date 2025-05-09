@@ -6,9 +6,14 @@ import json
 import pandas as pd
 import logging
 import re  # Import regex for JSON extraction
-from azure.identity.aio import DefaultAzureCredential,ClientSecretCredential
+from azure.identity.aio import ClientSecretCredential # DefaultAzureCredential removed as ClientSecretCredential is used directly
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError
-from semantic_kernel.agents import AzureAIAgent, AzureAIAgentThread, AzureAIAgentSettings
+from semantic_kernel.agents import AzureAIAgent, AzureAIAgentSettings # AzureAIAgentThread removed as it's not used
+from azure.identity import ClientSecretCredential as SyncClientSecretCredential
+from azure.ai.projects import AIProjectClient
+from azure.monitor.opentelemetry import configure_azure_monitor
+from opentelemetry import trace
+from opentelemetry.trace import Status, StatusCode
 
 # --- Configuration ---
 
@@ -18,6 +23,9 @@ from semantic_kernel.agents import AzureAIAgent, AzureAIAgentThread, AzureAIAgen
 # AZURE_AI_AGENT_AGENT = "your_agent_id"
 # AZURE_AI_AGENT_PROJECT_CONNECTION_STRING = "your_connection_string"
 # AZURE_AI_AGENT_MODEL_DEPLOYMENT_NAME = "your_deployment_name"
+# AZURE_TENANT_ID = "your_tenant_id"
+# AZURE_CLIENT_ID = "your_client_id"
+# AZURE_CLIENT_SECRET = "your_client_secret"
 # LOG_LEVEL = "INFO" # Optional: Set to DEBUG for more verbose logs
 
 AGENT_ID = st.secrets.azure.AZURE_AI_AGENT_AGENT
@@ -26,13 +34,13 @@ os.environ["AZURE_AI_AGENT_MODEL_DEPLOYMENT_NAME"] = st.secrets.azure.AZURE_AI_A
 
 # Configure logger (file + console)
 LOG_LEVEL_STR = st.secrets.get("azure", {}).get("LOG_LEVEL", "INFO").upper()
-LOG_LEVEL = getattr(logging, LOG_LEVEL_STR, logging.INFO)
+LOG_LEVEL = logging.DEBUG
 
 logging.basicConfig(
     level=LOG_LEVEL,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    filename='debug.log', # Log file
-    filemode='w' # Overwrite log file on each run
+    filename='debug.log',  # Log file
+    filemode='w'  # Overwrite log file on each run
 )
 # Console handler
 console_handler = logging.StreamHandler()
@@ -41,9 +49,45 @@ console_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(level
 # Add console handler to the root logger
 root_logger = logging.getLogger()
 if not any(isinstance(h, logging.StreamHandler) for h in root_logger.handlers):
-     root_logger.addHandler(console_handler)
+    root_logger.addHandler(console_handler)
 
 logger = logging.getLogger(__name__)
+
+# --- Azure AI Foundry Telemetry Initialization ---
+try:
+    # Build a synchronous AIProjectClient to fetch your App Insights connection string
+    project_conn_str = os.environ.get("AZURE_AI_AGENT_PROJECT_CONNECTION_STRING")
+    if project_conn_str:
+        # Ensure all necessary secrets for SyncClientSecretCredential are present
+        if not all([st.secrets.azure.get("AZURE_TENANT_ID"),
+                    st.secrets.azure.get("AZURE_CLIENT_ID"),
+                    st.secrets.azure.get("AZURE_CLIENT_SECRET")]):
+            logger.warning("⚠️ Missing Azure credentials (TENANT_ID, CLIENT_ID, or CLIENT_SECRET) for AIProjectClient; skipping telemetry.")
+        else:
+            creds_sync = SyncClientSecretCredential(
+                tenant_id=st.secrets.azure.AZURE_TENANT_ID,
+                client_id=st.secrets.azure.AZURE_CLIENT_ID,
+                client_secret=st.secrets.azure.AZURE_CLIENT_SECRET,
+            )
+            project_client = AIProjectClient.from_connection_string(
+                conn_str=project_conn_str,
+                credential=creds_sync
+            )
+            # Get the linked Application Insights connection string
+            ai_conn_str = project_client.telemetry.get_connection_string()
+            if ai_conn_str:
+                # Enable verbose content recording if desired
+                os.environ["AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED"] = "true"
+                configure_azure_monitor(connection_string=ai_conn_str)
+                logger.info("✅ Azure AI Foundry telemetry configured with Application Insights.")
+            else:
+                logger.warning("⚠️ No Application Insights resource attached in AI Foundry project. Telemetry will not be sent to App Insights.")
+    else:
+        logger.warning("⚠️ AZURE_AI_AGENT_PROJECT_CONNECTION_STRING not set; skipping telemetry.")
+except Exception as ex:
+    logger.error(f"Failed to initialize Azure AI telemetry: {ex}", exc_info=True)
+
+tracer = trace.get_tracer("HarmattanAI") 
 
 # Apply nest_asyncio to allow running asyncio code within Streamlit's event loop
 nest_asyncio.apply()
@@ -51,11 +95,12 @@ nest_asyncio.apply()
 # --- Azure AI Agent Interaction ---
 
 # Define a timeout for agent calls (in seconds)
-AGENT_CALL_TIMEOUT = 120.0 # 2 minutes
+AGENT_CALL_TIMEOUT = 120.0  # 2 minutes
 
 async def run_agent(user_input: str) -> str | None:
     """
     Connects to Azure, retrieves the specified agent, and gets a response.
+    Telemetry is captured for the agent interaction.
 
     Args:
         user_input: The text input from the user to send to the agent.
@@ -65,62 +110,107 @@ async def run_agent(user_input: str) -> str | None:
     """
     # Ensure the AGENT_ID corresponds to an agent definition compatible
     # with the expected input/output format of this application.
-    logger.info(f"Attempting to run agent {AGENT_ID}...")
-    try:
-        # Use DefaultAzureCredential, configured via environment variables set from secrets.toml
+    with tracer.start_as_current_span("AI-Agent.run_agent") as span: # Changed '/' to '.' for potential naming convention consistency
+        span.set_attribute("ai.agent_id", AGENT_ID)
+        span.set_attribute("ai.timeout_seconds", AGENT_CALL_TIMEOUT)
+        span.set_attribute("ai.user_input_preview", user_input[:100]) # Add preview of input for context
 
-        creds = ClientSecretCredential(
-            tenant_id=st.secrets.azure.AZURE_TENANT_ID,
-            client_id=st.secrets.azure.AZURE_CLIENT_ID,
-            client_secret=st.secrets.azure.AZURE_CLIENT_SECRET,    
-        )
+        logger.info(f"Attempting to run agent {AGENT_ID}...")
+        try:
+            # Ensure all necessary secrets for ClientSecretCredential are present
+            if not all([st.secrets.azure.get("AZURE_TENANT_ID"),
+                        st.secrets.azure.get("AZURE_CLIENT_ID"),
+                        st.secrets.azure.get("AZURE_CLIENT_SECRET")]):
+                logger.error("Missing Azure credentials (TENANT_ID, CLIENT_ID, or CLIENT_SECRET) for AzureAIAgent.")
+                st.error("Azure credentials for the AI Agent are not fully configured. Please check secrets.")
+                span.set_status(Status(StatusCode.ERROR, "Missing Azure credentials for AI Agent"))
+                return None
 
-        async with creds, AzureAIAgent.create_client(credential=creds) as client:
-            logger.debug("Azure credentials and AI client created.")
-            settings = AzureAIAgentSettings.create() # Uses env vars
-
-            # Retrieve the agent definition
-            logger.debug(f"Retrieving agent definition for {AGENT_ID}...")
-            agent_def = await asyncio.wait_for(
-                client.agents.get_agent(agent_id=AGENT_ID),
-                timeout=AGENT_CALL_TIMEOUT
+            creds_async = ClientSecretCredential(
+                tenant_id=st.secrets.azure.AZURE_TENANT_ID,
+                client_id=st.secrets.azure.AZURE_CLIENT_ID,
+                client_secret=st.secrets.azure.AZURE_CLIENT_SECRET,
             )
-            logger.debug("Agent definition retrieved.")
 
-            # Create the agent instance
-            agent = AzureAIAgent(client=client, definition=agent_def, settings=settings)
-            logger.debug("AzureAIAgent instance created.")
+            async with creds_async, AzureAIAgent.create_client(credential=creds_async) as client:
+                logger.debug("Azure credentials and AI client created.")
+                settings = AzureAIAgentSettings.create()  # Uses env vars
 
-            # Get the agent's response
-            # Note: Verify the expected input format for `get_response`.
-            # Some agent implementations might expect a list of message dicts,
-            # e.g., messages=[{"role": "user", "content": user_input}]
-            logger.info("Sending request to agent...")
-            response = await asyncio.wait_for(
-                agent.get_response(messages=user_input),
-                timeout=AGENT_CALL_TIMEOUT
-            )
-            logger.info("Received response from agent.")
-            logger.debug(f"Raw agent response: {response}")
-            return str(response)
+                # Retrieve the agent definition
+                logger.debug(f"Retrieving agent definition for {AGENT_ID}...")
+                agent_def = await asyncio.wait_for(
+                    client.agents.get_agent(agent_id=AGENT_ID),
+                    timeout=AGENT_CALL_TIMEOUT
+                )
+                logger.debug("Agent definition retrieved.")
+                span.add_event("agent.definition.retrieved")
 
-    except ClientAuthenticationError as e:
-        logger.error(f"Azure Authentication Error: {e}", exc_info=True)
-        st.error("Authentication failed. Please check Azure credentials configuration.")
-        return None
-    except HttpResponseError as e:
-        logger.error(f"Azure API Error: Status={e.status_code}, Reason={e.reason}, Message={e.message}", exc_info=True)
-        st.error(f"An error occurred while communicating with the Azure AI service (Status: {e.status_code}). Please try again later.")
-        return None
-    except asyncio.TimeoutError:
-        logger.error(f"Agent call timed out after {AGENT_CALL_TIMEOUT} seconds.")
-        st.error("The request to the AI agent timed out. Please try again.")
-        return None
-    except Exception as e:
-        # Catch unexpected errors during agent interaction
-        logger.error(f"Unexpected error during agent interaction: {e}", exc_info=True)
-        st.error("An unexpected error occurred while processing your request. Please check the logs.")
-        return None
+                # Create the agent instance
+                agent = AzureAIAgent(client=client, definition=agent_def, settings=settings)
+                logger.debug("AzureAIAgent instance created.")
+
+                # Get the agent's response
+                logger.info("Sending request to agent...")
+                response_content = None # Initialize response_content
+
+                # *** TELEMETRY FIX: Corrected duplicated call and added specific span for get_response ***
+                with tracer.start_as_current_span("AI-Agent.get_response") as rsp_span:
+                    rsp_span.set_attribute("ai.user_input_length", len(user_input))
+                    try:
+                        # Note: Verify the expected input format for `get_response`.
+                        # Some agent implementations might expect a list of message dicts,
+                        # e.g., messages=[{"role": "user", "content": user_input}]
+                        # Assuming user_input is the correct format for your agent.
+                        api_response = await asyncio.wait_for(
+                            agent.get_response(messages=user_input), # Single call to agent
+                            timeout=AGENT_CALL_TIMEOUT
+                        )
+                        response_content = str(api_response) # Convert to string
+                        rsp_span.set_attribute("ai.response_preview", api_response) # Add preview of response
+                        rsp_span.add_event("agent.get_response.succeeded")
+                        # Span status is OK by default if no exception
+                    except Exception as e_inner:
+                        logger.error(f"Error during agent.get_response: {e_inner}", exc_info=True)
+                        rsp_span.record_exception(e_inner)
+                        rsp_span.set_status(Status(StatusCode.ERROR, f"Agent get_response failed: {type(e_inner).__name__}"))
+                        raise # Re-raise to be caught by the outer try-except, which will mark the parent span
+
+                span.add_event("agent.response.processed") # Event for the outer span
+                logger.info("Received response from agent.")
+                logger.debug(f"Raw agent response: {response_content}")
+                # Set status OK for the outer span if we reached here successfully
+                span.set_status(Status(StatusCode.OK))
+                return response_content
+
+        except ClientAuthenticationError as e:
+            logger.error(f"Azure Authentication Error: {e}", exc_info=True)
+            st.error("Authentication failed. Please check Azure credentials configuration.")
+            span.record_exception(e)
+            span.set_status(Status(StatusCode.ERROR, "Azure Authentication Error"))
+            return None
+        except HttpResponseError as e:
+            logger.error(f"Azure API Error: Status={e.status_code}, Reason={e.reason}, Message={e.message}", exc_info=True)
+            st.error(f"An error occurred while communicating with the Azure AI service (Status: {e.status_code}). Please try again later.")
+            span.record_exception(e)
+            span.set_status(Status(StatusCode.ERROR, f"Azure API Error: {e.status_code}"))
+            span.set_attribute("http.status_code", e.status_code) # Add http status code if available
+            return None
+        except asyncio.TimeoutError:
+            logger.error(f"Agent call timed out after {AGENT_CALL_TIMEOUT} seconds.")
+            st.error("The request to the AI agent timed out. Please try again.")
+            # TimeoutError is an Exception, so record_exception will work.
+            # Create a TimeoutError instance to pass to record_exception if not automatically available.
+            timeout_exc = asyncio.TimeoutError(f"Agent call timed out after {AGENT_CALL_TIMEOUT} seconds.")
+            span.record_exception(timeout_exc)
+            span.set_status(Status(StatusCode.ERROR, "Agent call timed out"))
+            return None
+        except Exception as e:
+            # Catch unexpected errors during agent interaction
+            logger.error(f"Unexpected error during agent interaction: {e}", exc_info=True)
+            st.error("An unexpected error occurred while processing your request. Please check the logs.")
+            span.record_exception(e)
+            span.set_status(Status(StatusCode.ERROR, f"Unexpected error: {type(e).__name__}"))
+            return None
 
 def extract_json_from_string(text: str) -> str | None:
     """
@@ -132,18 +222,26 @@ def extract_json_from_string(text: str) -> str | None:
     Returns:
         The extracted JSON string, or None if no JSON object/array is found.
     """
+    if not text: # Handle empty or None input
+        logger.warning("Input text for JSON extraction is empty or None.")
+        return None
     # Regex to find JSON object '{...}' or array '[...]' potentially wrapped in ```json ... ```
     # It handles potential leading/trailing whitespace and the markdown fences.
     match = re.search(r'```(?:json)?\s*([\[\{].*[\]\}])\s*```|([\[\{].*[\]\}])', text, re.DOTALL | re.IGNORECASE)
     if match:
         # Return the first non-None captured group
-        return match.group(1) if match.group(1) else match.group(2)
+        json_str = match.group(1) if match.group(1) else match.group(2)
+        logger.debug(f"Extracted JSON string: {json_str[:200]}...") # Log preview
+        return json_str
     logger.warning("Could not find JSON object or array in the agent's response.")
+    logger.debug(f"Full text searched for JSON: {text[:500]}...") # Log preview of text that failed extraction
     return None
 
 async def get_agent_response_async(user_input: str) -> list | None:
     """
     Runs the agent, parses the JSON response, and handles errors.
+    Telemetry for the raw agent call is handled within run_agent.
+    This function focuses on parsing and could have its own span if complex.
 
     Args:
         user_input: The text input from the user.
@@ -151,39 +249,53 @@ async def get_agent_response_async(user_input: str) -> list | None:
     Returns:
         A list containing the parsed data from the agent, or None if an error occurs.
     """
-    raw_response = await run_agent(user_input)
-    if raw_response is None:
-        return None # Error already handled and logged in run_agent
+    # Consider adding a span here if parsing logic is complex or error-prone
+    with tracer.start_as_current_span("App.parse_agent_response") as parse_span:
+        raw_response = await run_agent(user_input)
+        if raw_response is None:
+            parse_span.set_status(Status(StatusCode.ERROR, "Agent returned no response")) # If span added
+            return None  # Error already handled and logged in run_agent
 
     json_string = extract_json_from_string(raw_response)
     if json_string is None:
         st.error("Could not extract valid JSON data from the agent's response.")
         logger.error(f"Failed to extract JSON from raw response: {raw_response}")
+        parse_span.set_status(Status(StatusCode.ERROR, "JSON extraction failed")) # If span added
+        parse_span.set_attribute("app.raw_response_preview", raw_response[:200]) # If span added
         return None
 
     try:
-        logger.debug(f"Attempting to parse JSON: {json_string}")
+        logger.debug(f"Attempting to parse JSON: {json_string[:200]}...")
         data = json.loads(json_string)
         # Ensure the result is always a list
         if isinstance(data, list):
             logger.info(f"Successfully parsed agent response into a list of {len(data)} items.")
+            parse_span.set_attribute("app.parsed_item_count", len(data)) # If span added
             return data
         elif isinstance(data, dict):
-             logger.info("Successfully parsed agent response into a single dictionary, wrapping in a list.")
-             return [data]
+            logger.info("Successfully parsed agent response into a single dictionary, wrapping in a list.")
+            parse_span.set_attribute("app.parsed_item_count", 1) # If span added
+            return [data]
         else:
             logger.error(f"Parsed JSON is not a list or dictionary, type: {type(data)}")
             st.error("The agent returned data in an unexpected format.")
+            parse_span.set_status(Status(StatusCode.ERROR, f"Unexpected JSON type: {type(data)}")) # If span added
             return None
     except json.JSONDecodeError as e:
         logger.error(f"Error parsing JSON response: {e}", exc_info=True)
         logger.error(f"Problematic JSON string: {json_string}")
         st.error("Failed to parse the JSON data received from the agent.")
+        # if 'parse_span' in locals(): # If span added
+        #     parse_span.record_exception(e)
+        #     parse_span.set_status(Status(StatusCode.ERROR, "JSONDecodeError"))
         return None
     except Exception as e:
         # Catch unexpected errors during parsing/processing
         logger.error(f"Unexpected error processing agent response: {e}", exc_info=True)
         st.error("An unexpected error occurred while processing the agent's response.")
+        # if 'parse_span' in locals(): # If span added
+        #     parse_span.record_exception(e)
+        #     parse_span.set_status(Status(StatusCode.ERROR, f"Unexpected parsing error: {type(e).__name__}"))
         return None
 
 def get_agent_response_sync(user_input: str) -> list | None:
@@ -192,6 +304,7 @@ def get_agent_response_sync(user_input: str) -> list | None:
     return asyncio.run(get_agent_response_async(user_input))
 
 # --- Streamlit UI ---
+
 
 @st.dialog("Recap", width="large")
 def show_validation_dialog(validated_data: list[dict], system_name: str):
@@ -216,30 +329,34 @@ def show_validation_dialog(validated_data: list[dict], system_name: str):
         logger.info(f"Validation dialog shown for system {system_name}, but no codes were selected.")
 
 # Inject minimal CSS for button styling
-# For more complex styling, consider using st.set_page_config(layout="wide")
-# and external CSS files or Streamlit Theming.
 st.markdown(
     """<style>
-       div.stButton > button {
-           background-color: #398980; /* Example color */
-           color: #ffffff;
-           border: none;
-           padding: 0.5em 1em;
-           border-radius: 5px;
-           font-weight: bold;
-           cursor: pointer; /* Add pointer cursor */
-       }
-       div.stButton > button:hover {
-           background-color: #2a6a60; /* Darker shade on hover */
-       }
-       /* Style the logout button differently if needed */
-       /* You might need to inspect the HTML to find a more specific selector */
+        div.stButton > button {
+            background-color: #398980; /* Example color */
+            color: #ffffff;
+            border: none;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer; /* Add pointer cursor */
+        }
+        div.stButton > button:hover {
+            background-color: #2a6a60; /* Darker shade on hover */
+        }
     </style>""",
     unsafe_allow_html=True
 )
 
 # --- Sidebar ---
-st.sidebar.image("assets/logo_harmattan.png", width=250) # Adjust width as needed
+# Ensure asset path is correct or handle potential FileNotFoundError
+try:
+    st.sidebar.image("assets/logo_harmattan.png", width=250) # Adjust width as needed
+except FileNotFoundError:
+    st.sidebar.warning("Logo image not found at assets/logo_harmattan.png")
+except Exception as e: # Catch other potential errors from st.image, like UnidentifiedImageError
+    st.sidebar.warning(f"Could not load logo: {e}")
+
+
 system_selection = st.sidebar.selectbox(
     "Select Target System:",
     ["Hopital Management", "DEDALUS", "CEGEDIM"],
@@ -265,7 +382,14 @@ if "agent_response_data" not in st.session_state:
 if "validation_states" not in st.session_state:
     st.session_state.validation_states = {} # Store checkbox states {index: bool}
 
-st.image("assets/logo_harmattan.png", width=500) # Adjust width as needed
+# Ensure asset path is correct or handle potential FileNotFoundError
+try:
+    st.image("assets/logo_harmattan.png", width=500) # Adjust width as needed
+except FileNotFoundError:
+    st.warning("Main logo image not found at assets/logo_harmattan.png")
+except Exception as e:
+    st.warning(f"Could not load main logo: {e}")
+
 st.header("AI Medical Code Assistant")
 st.markdown("Paste the doctor's notes below and click 'Analyze Notes' to get suggested codes.")
 
@@ -275,23 +399,22 @@ doctor_notes = st.text_area("Doctor's Notes:", height=200, key="doctor_notes_inp
 if st.user.is_logged_in:
     if st.button("Analyze Notes", key="analyze_button", type="primary"):
         if doctor_notes.strip():
-            with st.spinner("Sending request to Harmattan AI... Please wait."): # Removed show_time
-                logger.info("Analyze button clicked, processing notes.")
+            with st.spinner("Sending request to Harmattan AI... Please wait.",show_time=True):
+                logger.info(f"Analyze button clicked, processing notes for system: {system_selection}.") # Added system_selection to log
                 # Call the synchronous wrapper which handles the async call
                 response_data = get_agent_response_sync(doctor_notes)
                 st.session_state.agent_response_data = response_data # Store results or None
                 # Reset validation states when new results are fetched
                 st.session_state.validation_states = {}
                 if response_data is None:
-                    # Error message already shown by get_agent_response_async/run_agent
                     logger.warning("Agent analysis resulted in an error or no data.")
+                    # Error message already shown by get_agent_response_async/run_agent
                 elif not response_data:
-                     st.info("The analysis did not return any specific codes for the provided notes.")
-                     logger.info("Agent analysis completed but returned an empty list.")
+                    st.info("The analysis did not return any specific codes for the provided notes.")
+                    logger.info("Agent analysis completed but returned an empty list.")
                 else:
-                     st.success(f"Analysis complete. Found {len(response_data)} potential codes.")
-                     logger.info(f"Agent analysis successful, {len(response_data)} items returned.")
-
+                    st.success(f"Analysis complete. Found {len(response_data)} potential codes.")
+                    logger.info(f"Agent analysis successful, {len(response_data)} items returned.")
         else:
             st.warning("Please paste the doctor's notes into the text area before analyzing.")
             logger.warning("Analyze button clicked, but input notes were empty.")
@@ -304,62 +427,65 @@ st.subheader("Analysis Results")
 
 if st.session_state.agent_response_data:
     results = st.session_state.agent_response_data
-    df_resp = pd.DataFrame(results) # Create DataFrame for easier handling
+    # Ensure results is a list of dicts for DataFrame compatibility
+    if not all(isinstance(item, dict) for item in results):
+        st.error("Agent response data is not in the expected format (list of dictionaries).")
+        logger.error(f"Agent response data malformed: {results}")
+    else:
+        df_resp = pd.DataFrame(results)
 
-    # Use st.form to group checkboxes and the save button
-    with st.form(key="validation_form"):
-        # Display results in columns
-        # Headers outside the loop
-        cols_header = st.columns([4, 3, 2, 1, 1]) # Adjusted widths
-        cols_header[0].markdown("**Excerpt**")
-        cols_header[1].markdown("**Description**")
-        cols_header[2].markdown("**Code**")
-        cols_header[3].markdown("**Link**")
-        cols_header[4].markdown("**Check**")
-        st.markdown("---") # Separator after headers
+        with st.form(key="validation_form"):
+            # Headers outside the loop
+            # Adjusted column widths for better layout
+            cols_header = st.columns([4, 3, 2, 1, 1]) # Excerpt, Description, Code, Link, Check
+            cols_header[0].markdown("**Excerpt**")
+            cols_header[1].markdown("**Description**")
+            cols_header[2].markdown("**Code**")
+            cols_header[3].markdown("**Link**")
+            cols_header[4].markdown("**Validate**") # Changed from "Check" to "Validate" for clarity
+            st.markdown("---") # Separator after headers
 
-        for idx, row in df_resp.iterrows():
-            cols = st.columns([4.5,4,1.5,1.5,1.5]) # Match header widths
+            for idx, row in df_resp.iterrows():
+                # Match header column widths
+                cols = st.columns([4.5,4,1.5,1.5,1.5])
 
-            # Use st.text or st.write for safety - avoids unsafe HTML
-            cols[0].text(row.get('extract', 'N/A')) # Display raw text
-            cols[1].text(row.get('description', 'N/A'))
-            cols[2].text(row.get('code', 'N/A'))
+                cols[0].text(row.get('extract', 'N/A'))
+                cols[1].text(row.get('description', 'N/A'))
+                cols[2].text(row.get('code', 'N/A'))
 
-            # Display link safely if present
-            url = row.get('url')
-            if url:
-                # Basic validation: ensure it looks like a URL
-                if isinstance(url, str) and url.startswith(('http://', 'https://')):
-                    cols[3].link_button("Link", url, help=f"Open link for code {row.get('code', '')}")
+                url = row.get('url')
+                if url and isinstance(url, str) and (url.startswith(('http://', 'https://')) or url.startswith('www.')):
+                    # Ensure URL is absolute if it starts with www.
+                    display_url = f"https://{url}" if url.startswith('www.') else url
+                    cols[3].link_button("Link", display_url, help=f"Open link for code {row.get('code', '')}")
                 else:
-                    cols[3].text("-") # Placeholder if URL is invalid
-                    logger.warning(f"Row {idx} has an invalid URL: {url}")
-            else:
-                cols[3].text("-") # Placeholder if no URL
+                    cols[3].text("-")
+                    if url: # Log if a URL was present but invalid
+                        logger.warning(f"Row {idx} has an invalid or missing URL: '{url}'")
 
-            # Checkbox for validation - state managed by Streamlit using the key
-            # Use the index as part of the key for uniqueness
-            validation_key = f"validate_{idx}"
-            is_validated = cols[4].checkbox("Validate", key=validation_key, value=st.session_state.validation_states.get(validation_key, False),label_visibility="collapsed")
-            # Update the central validation state tracker immediately (though form submission is the final trigger)
-            st.session_state.validation_states[validation_key] = is_validated
+                validation_key = f"validate_{idx}"
+                # Default to False if key not in validation_states
+                current_validation_state = st.session_state.validation_states.get(validation_key, False)
+                is_validated = cols[4].checkbox(
+                    "", # Removed label as header "Validate" serves this purpose
+                    key=validation_key,
+                    value=current_validation_state,
+                    label_visibility="hidden"
+                )
+                st.session_state.validation_states[validation_key] = is_validated
+                st.markdown("---")
 
-            st.markdown("---") # Separator between rows
+            submitted = st.form_submit_button("Save Validated Codes")
+            if submitted:
+                logger.info("Save Validated Codes button clicked.")
+                validated_rows_data = []
+                for i, r_series in df_resp.iterrows(): # r_series is a pandas Series
+                    # Use the persisted checkbox state from st.session_state.validation_states
+                    if st.session_state.validation_states.get(f"validate_{i}", False):
+                        validated_rows_data.append(r_series.to_dict())
 
-        # Submit button for the form
-        submitted = st.form_submit_button("Save Validated Codes")
-        if submitted:
-            logger.info("Save Validated Codes button clicked.")
-            # Collect validated rows based on the checkbox states within the form's submission context
-            validated_rows_data = []
-            for i, r in df_resp.iterrows():
-                 if st.session_state.get(f"validate_{i}", False): # Check the state at submission time
-                     validated_rows_data.append(r.to_dict()) # Convert row to dict
-
-            logger.debug(f"Data prepared for validation dialog: {validated_rows_data}")
-            # Call the dialog function, passing the validated data and system name
-            show_validation_dialog(validated_data=validated_rows_data, system_name=system_selection)
+                logger.debug(f"Data prepared for validation dialog: {validated_rows_data}")
+                show_validation_dialog(validated_data=validated_rows_data, system_name=system_selection)
 
 elif st.session_state.agent_response_data is None and st.user.is_logged_in:
      # Only show this if logged in and no analysis has been run yet or failed
@@ -371,5 +497,4 @@ elif st.session_state.agent_response_data is None and st.user.is_logged_in:
 
 # --- Footer or additional info ---
 st.sidebar.markdown("---")
-st.sidebar.info("Harmattan AI Assistant v1.1") # Example version info
-
+st.sidebar.info("Harmattan AI Assistant v1.2") 
