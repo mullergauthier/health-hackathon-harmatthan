@@ -62,39 +62,49 @@ logging.getLogger().addHandler(console)
 
 # --- Azure AI Foundry Telemetry Initialization ---
 try:
-    # Build a synchronous AIProjectClient to fetch your App Insights connection string
-    project_conn_str = os.environ.get("AZURE_AI_AGENT_PROJECT_CONNECTION_STRING")
-    if project_conn_str:
-        # Ensure all necessary secrets for SyncClientSecretCredential are present
-        if not all([st.secrets.azure.get("AZURE_TENANT_ID"),
-                    st.secrets.azure.get("AZURE_CLIENT_ID"),
-                    st.secrets.azure.get("AZURE_CLIENT_SECRET")]):
-            logger.warning("⚠️ Missing Azure credentials (TENANT_ID, CLIENT_ID, or CLIENT_SECRET) for AIProjectClient; skipping telemetry.")
-        else:
-            creds_sync = SyncClientSecretCredential(
-                tenant_id=st.secrets.azure.AZURE_TENANT_ID,
-                client_id=st.secrets.azure.AZURE_CLIENT_ID,
-                client_secret=st.secrets.azure.AZURE_CLIENT_SECRET,
-            )
-            project_client = AIProjectClient.from_connection_string(
-                conn_str=project_conn_str,
-                credential=creds_sync
-            )
-            # Get the linked Application Insights connection string
-            ai_conn_str = project_client.telemetry.get_connection_string()
-            if ai_conn_str:
-                # Enable verbose content recording if desired
-                os.environ["AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED"] = "true"
-                configure_azure_monitor(connection_string=ai_conn_str)
-                logger.info("✅ Azure AI Foundry telemetry configured with Application Insights.")
-            else:
-                logger.warning("⚠️ No Application Insights resource attached in AI Foundry project. Telemetry will not be sent to App Insights.")
+    # Load Foundry project endpoint and Azure credentials from secrets
+    endpoint       = st.secrets.azure.AZURE_AI_PROJECT_ENDPOINT
+    subscription   = st.secrets.azure.AZURE_SUBSCRIPTION_ID
+    resource_group = st.secrets.azure.AZURE_RESOURCE_GROUP_NAME
+    project_name   = st.secrets.azure.AZURE_AI_PROJECT_NAME
+    tenant_id      = st.secrets.azure.AZURE_TENANT_ID
+    client_id      = st.secrets.azure.AZURE_CLIENT_ID
+    client_secret  = st.secrets.azure.AZURE_CLIENT_SECRET
+
+    # Skip telemetry if any secret is missing
+    if not all([endpoint, tenant_id, client_id, client_secret]):
+        logger.warning("⚠️ Missing Azure Foundry project endpoint or credentials; skipping telemetry.")
     else:
-        logger.warning("⚠️ AZURE_AI_AGENT_PROJECT_CONNECTION_STRING not set; skipping telemetry.")
+        # Build a synchronous credential
+        creds_sync = SyncClientSecretCredential(
+            tenant_id=tenant_id,
+            client_id=client_id,
+            client_secret=client_secret,
+        )
+
+        # Instantiate the AIProjectClient with endpoint + credential
+        project_client = AIProjectClient(
+            endpoint=endpoint,               # Foundry project URL :contentReference[oaicite:5]{index=5}
+            subscription_id=subscription,    # Your Azure subscription
+            resource_group_name=resource_group,
+            project_name=project_name,
+            credential=creds_sync
+        )
+
+        # Fetch the linked Application Insights connection string
+        ai_conn_str = project_client.telemetry.get_connection_string()
+        if ai_conn_str:
+            # Enable verbose AI content recording, if desired
+            os.environ["AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED"] = "true"
+            configure_azure_monitor(connection_string=ai_conn_str)
+            logger.info("✅ Azure AI Foundry telemetry configured with Application Insights.")
+        else:
+            logger.warning("⚠️ No Application Insights resource attached in AI Foundry project; telemetry disabled.")
 except Exception as ex:
     logger.error(f"Failed to initialize Azure AI telemetry: {ex}", exc_info=True)
 
-tracer = trace.get_tracer("HarmattanAI") 
+tracer = trace.get_tracer("HarmattanAI")
+
 
 # Apply nest_asyncio to allow running asyncio code within Streamlit's event loop
 nest_asyncio.apply()
