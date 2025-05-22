@@ -212,12 +212,13 @@ async def run_agent(user_input: str) -> str | None:
             span.set_status(Status(StatusCode.ERROR, "Agent call timed out"))
             return None
         except Exception as e:
-            # Catch unexpected errors during agent interaction
             logger.error(f"Unexpected error during agent interaction: {e}", exc_info=True)
-            st.error("An unexpected error occurred while processing your request. Please check the logs.")
+            # Show the actual exception text in the UI
+            st.error(f"An unexpected error occurred: {e}")
             span.record_exception(e)
             span.set_status(Status(StatusCode.ERROR, f"Unexpected error: {type(e).__name__}"))
             return None
+
 
 def extract_json_from_string(text: str) -> str | None:
     """
