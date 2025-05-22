@@ -32,26 +32,33 @@ AGENT_ID = st.secrets.azure.AZURE_AI_AGENT_AGENT
 os.environ["AZURE_AI_AGENT_PROJECT_CONNECTION_STRING"] = st.secrets.azure.AZURE_AI_AGENT_PROJECT_CONNECTION_STRING
 os.environ["AZURE_AI_AGENT_MODEL_DEPLOYMENT_NAME"] = st.secrets.azure.AZURE_AI_AGENT_MODEL_DEPLOYMENT_NAME
 
-# Configure logger (file + console)
-LOG_LEVEL_STR = st.secrets.get("azure", {}).get("LOG_LEVEL", "INFO").upper()
-LOG_LEVEL = logging.DEBUG
+import logging
 
+# — NEW LOGGING CONFIG — 
+
+# 1) Configure the **root** logger to only record INFO+ (so DEBUG/VERBOSE is dropped immediately):
 logging.basicConfig(
-    level=LOG_LEVEL,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    filename='debug.log',  # Log file
-    filemode='w'  # Overwrite log file on each run
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    filename="debug.log",
+    filemode="w",
 )
-# Console handler
-console_handler = logging.StreamHandler()
-console_handler.setLevel(LOG_LEVEL)
-console_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
-# Add console handler to the root logger
-root_logger = logging.getLogger()
-if not any(isinstance(h, logging.StreamHandler) for h in root_logger.handlers):
-    root_logger.addHandler(console_handler)
 
+# 2) Now create your module‐level logger so you can still call `logger.debug(...)` if you want:
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+# 3) Quiet down other noisy libraries at WARNING+ only:
+for lib in ("azure", "opentelemetry", "httpx", "urllib3"):
+    logging.getLogger(lib).setLevel(logging.ERROR)
+
+# 4) (Optional) Re-attach a console handler for INFO+ to stdout:
+console = logging.StreamHandler()
+console.setLevel(logging.INFO)
+console.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s"))
+logging.getLogger().addHandler(console)
+
+
 
 # --- Azure AI Foundry Telemetry Initialization ---
 try:
