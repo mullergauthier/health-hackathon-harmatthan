@@ -62,7 +62,6 @@ logging.getLogger().addHandler(console)
 
 # --- Azure AI Foundry Telemetry Initialization ---
 try:
-    # Load Foundry project endpoint and Azure credentials from secrets
     endpoint       = st.secrets.azure.AZURE_AI_PROJECT_ENDPOINT
     subscription   = st.secrets.azure.AZURE_SUBSCRIPTION_ID
     resource_group = st.secrets.azure.AZURE_RESOURCE_GROUP_NAME
@@ -71,37 +70,35 @@ try:
     client_id      = st.secrets.azure.AZURE_CLIENT_ID
     client_secret  = st.secrets.azure.AZURE_CLIENT_SECRET
 
-    # Skip telemetry if any secret is missing
-    if not all([endpoint, tenant_id, client_id, client_secret]):
-        logger.warning("⚠️ Missing Azure Foundry project endpoint or credentials; skipping telemetry.")
+    # Sauter uniquement si les secrets essentiels manquent
+    if not all([endpoint, subscription, resource_group, project_name, tenant_id, client_id, client_secret]):
+        logger.warning("⚠️ Secrets Azure Foundry incomplets ; télémétrie désactivée.")
     else:
-        # Build a synchronous credential
         creds_sync = SyncClientSecretCredential(
             tenant_id=tenant_id,
             client_id=client_id,
             client_secret=client_secret,
         )
-
-        # Instantiate the AIProjectClient with endpoint + credential
         project_client = AIProjectClient(
-            endpoint=endpoint,               # Foundry project URL :contentReference[oaicite:5]{index=5}
-            subscription_id=subscription,    # Your Azure subscription
+            endpoint=endpoint,
+            subscription_id=subscription,
             resource_group_name=resource_group,
             project_name=project_name,
             credential=creds_sync
         )
-
-        # Fetch the linked Application Insights connection string
-        ai_conn_str = project_client.telemetry.get_connection_string()
-        if ai_conn_str:
-            # Enable verbose AI content recording, if desired
-            os.environ["AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED"] = "true"
-            configure_azure_monitor(connection_string="InstrumentationKey=0a7700cb-ecc7-4e32-94ae-e67c4543ce39;IngestionEndpoint=https://swedencentral-0.in.applicationinsights.azure.com/;LiveEndpoint=https://swedencentral.livediagnostics.monitor.azure.com/;ApplicationId=774bac69-87d7-4470-bbe6-e1fc3e5e3015")
-            logger.info("✅ Azure AI Foundry telemetry configured with Application Insights.")
-        else:
-            logger.warning("⚠️ No Application Insights resource attached in AI Foundry project; telemetry disabled.")
+        try:
+            ai_conn_str = project_client.telemetry.get_connection_string()
+            if ai_conn_str:
+                os.environ["AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED"] = "true"
+                configure_azure_monitor(connection_string=ai_conn_str)
+                logger.info("✅ Télémétrie Azure AI Foundry configurée.")
+            else:
+                logger.warning("⚠️ Pas de ressource App Insights liée ; télémétrie désactivée.")
+        except ClientAuthenticationError:
+            logger.warning("⚠️ Permissions insuffisantes pour la télémétrie Foundry ; ignore.")
 except Exception as ex:
-    logger.error(f"Failed to initialize Azure AI telemetry: {ex}", exc_info=True)
+    logger.error(f"Erreur d’initialisation de la télémétrie : {ex}", exc_info=True)
+
 
 tracer = trace.get_tracer("HarmattanAI")
 
