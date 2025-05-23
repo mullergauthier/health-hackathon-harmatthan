@@ -32,7 +32,7 @@ AGENT_ID = st.secrets.azure.AZURE_AI_AGENT_AGENT
 os.environ["AZURE_AI_AGENT_PROJECT_CONNECTION_STRING"] = st.secrets.azure.AZURE_AI_AGENT_PROJECT_CONNECTION_STRING
 os.environ["AZURE_AI_AGENT_MODEL_DEPLOYMENT_NAME"] = st.secrets.azure.AZURE_AI_AGENT_MODEL_DEPLOYMENT_NAME
 # Assurez-vous aussi d’avoir défini AZURE_AI_AGENT_ENDPOINT dans vos secrets
-os.environ["AZURE_AI_AGENT_ENDPOINT"] = st.secrets.azure.AZURE_AI_AGENT_ENDPOINT
+os.environ["AZURE_AI_PROJECT_ENDPOINT"] = st.secrets.azure.AZURE_AI_PROJECT_ENDPOINT
 
 
 import logging

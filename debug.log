@@ -1,0 +1,21 @@
+2025-05-24 01:41:10,077 - __main__ - INFO - \u2705 Télémétrie Azure AI Foundry configurée.
+2025-05-24 01:41:27,175 - __main__ - INFO - \u2705 Télémétrie Azure AI Foundry configurée.
+2025-05-24 01:41:27,210 - __main__ - INFO - Analyze button clicked, processing notes for system: Hopital Management.
+2025-05-24 01:41:27,212 - __main__ - INFO - Attempting to run agent asst_S96IdpHu5luCGKC7aNRYWPjT...
+2025-05-24 01:41:27,369 - __main__ - DEBUG - Azure credentials and AI client created.
+2025-05-24 01:41:27,369 - semantic_kernel - WARNING - The create method is deprecated. Use the __new__ method instead.
+2025-05-24 01:41:27,370 - __main__ - DEBUG - Retrieving agent definition for asst_S96IdpHu5luCGKC7aNRYWPjT...
+2025-05-24 01:41:27,655 - __main__ - INFO - \u2705 Télémétrie Azure AI Foundry configurée.
+2025-05-24 01:41:28,788 - __main__ - DEBUG - Agent definition retrieved.
+2025-05-24 01:41:28,789 - __main__ - DEBUG - AzureAIAgent instance created.
+2025-05-24 01:41:28,790 - __main__ - INFO - Sending request to agent...
+2025-05-24 01:41:36,402 - semantic_kernel.agents.azure_ai.agent_thread_actions - INFO - Polling run status: run_B96jwXjYtYqBiDt9XmkUMERf, threadId: thread_tv03HHLrCqYabbBDtL0eM42k
+2025-05-24 01:41:37,575 - semantic_kernel.agents.azure_ai.agent_thread_actions - INFO - Polled run status: RunStatus.COMPLETED, run_B96jwXjYtYqBiDt9XmkUMERf, threadId: thread_tv03HHLrCqYabbBDtL0eM42k
+2025-05-24 01:41:38,155 - __main__ - INFO - Received response from agent.
+2025-05-24 01:41:38,156 - __main__ - DEBUG - Raw agent response: ```json
+[]
+```
+2025-05-24 01:41:38,158 - __main__ - DEBUG - Extracted JSON string: []...
+2025-05-24 01:41:38,158 - __main__ - DEBUG - Attempting to parse JSON: []...
+2025-05-24 01:41:38,158 - __main__ - INFO - Successfully parsed agent response into a list of 0 items.
+2025-05-24 01:41:38,159 - __main__ - INFO - Agent analysis completed but returned an empty list.
