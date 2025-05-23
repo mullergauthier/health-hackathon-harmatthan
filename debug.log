@@ -1,1 +1,0 @@
-2025-05-23 00:07:59,944 - __main__ - WARNING - \u26a0\ufe0f Missing Azure credentials (TENANT_ID, CLIENT_ID, or CLIENT_SECRET) for AIProjectClient; skipping telemetry.
