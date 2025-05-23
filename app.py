@@ -96,7 +96,7 @@ try:
         if ai_conn_str:
             # Enable verbose AI content recording, if desired
             os.environ["AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED"] = "true"
-            configure_azure_monitor(connection_string="InstrumentationKey=454b4e2e-b26f-4016-aea0-c3b3d82f9087;IngestionEndpoint=https://swedencentral-0.in.applicationinsights.azure.com/;LiveEndpoint=https://swedencentral.livediagnostics.monitor.azure.com/;ApplicationId=46082e8c-6505-4e95-8da2-f8c3bbcb34d5")
+            configure_azure_monitor(connection_string="InstrumentationKey=0a7700cb-ecc7-4e32-94ae-e67c4543ce39;IngestionEndpoint=https://swedencentral-0.in.applicationinsights.azure.com/;LiveEndpoint=https://swedencentral.livediagnostics.monitor.azure.com/;ApplicationId=774bac69-87d7-4470-bbe6-e1fc3e5e3015")
             logger.info("✅ Azure AI Foundry telemetry configured with Application Insights.")
         else:
             logger.warning("⚠️ No Application Insights resource attached in AI Foundry project; telemetry disabled.")
