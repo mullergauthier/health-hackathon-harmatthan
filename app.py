@@ -255,7 +255,7 @@ if st.user.is_logged_in:
         if st.button("Logout", key="logout_button"):
              st.logout() # Use Streamlit's built-in logout
 else:
-    st.sidebar.button("Login", on_click=st.login, key="login_button") # Use Streamlit's built-in login
+    st.sidebar.button("Login", on_click=st.login("auth0"), key="login_button") # Use Streamlit's built-in login
 
 # --- Main Application Area ---
 
